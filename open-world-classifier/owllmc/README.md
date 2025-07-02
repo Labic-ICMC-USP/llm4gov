@@ -74,7 +74,7 @@ system_prompt_generalist = load_prompt(config["paths"]["prompt_generalist"])
 system_prompt_specialist = load_prompt(config["paths"]["prompt_specialist"])
 classes = load_classes_from_csv(config["paths"]["classes_csv"])
 
-# Initialize and train the classifier
+# Initialize the classifier
 owllmc = OWLLMc(
     llm_generalist=llm_generalist,
     llm_specialist=llm_specialist,

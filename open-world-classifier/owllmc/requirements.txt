@@ -1,0 +1,4 @@
+langchain
+openai
+tqdm
+langchain_community

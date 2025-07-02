@@ -1,0 +1,15 @@
+llm:
+  generalist:
+    model: meta-llama/llama-4-scout
+    api_key: API-KEY
+    api_base: https://openrouter.ai/api/v1
+
+  specialist:
+    model: meta-llama/llama-3.1-70b-instruct
+    api_key: API-KEY
+    api_base: https://openrouter.ai/api/v1
+
+paths:
+  prompt_generalist: prompts/generalist.txt
+  prompt_specialist: prompts/specialist.txt
+  classes_csv: data/classes.csv

@@ -1,0 +1,5 @@
+model: meta-llama/llama-4-scout
+api_key: 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
+api_base: https://openrouter.ai/api/v1
+temperature: 0.2
+system_prompt_path: prompts/issue_classifier_prompt.txt

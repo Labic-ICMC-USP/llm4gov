@@ -1,0 +1,797 @@
+[
+  {
+    "id": "ex01",
+    "input_text": "Power outage in São Paulo's downtown affected several hospitals and government buildings.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "The power outage affected critical infrastructure such as hospitals and government buildings, posing a moderate risk to public health and safety."
+      },
+      "category": {
+        "label": "Power Outage",
+        "confidence": 0.9,
+        "keywords": [
+          "power outage",
+          "São Paulo",
+          "hospitals",
+          "government buildings"
+        ]
+      },
+      "type": {
+        "domain": "Infrastructure",
+        "subcategory": "Power Grid Failure"
+      },
+      "summary": "A power outage occurred in São Paulo's downtown area, impacting several hospitals and government buildings.",
+      "impacted_entities": [
+        "hospitals",
+        "government buildings",
+        "São Paulo's downtown"
+      ],
+      "likely_consequences": [
+        "disruption of medical services",
+        "impact on public administration",
+        "potential safety risks"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [],
+      "locations": [
+        "São Paulo",
+        "São Paulo's downtown"
+      ],
+      "dates": [],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "Identified the input text as describing an event with potential negative impact.",
+        "Determined the event to be a power outage affecting critical infrastructure.",
+        "Assessed the severity as moderate due to the impact on hospitals and government buildings."
+      ],
+      "reasoning": "The text describes a power outage in São Paulo's downtown area affecting several hospitals and government buildings, which indicates a moderate level of severity due to its impact on critical infrastructure and potential risks to public health and safety."
+    }
+  },
+  {
+    "id": "ex02",
+    "input_text": "A fire broke out at the Petrobras refinery in Cubatão on July 2nd, causing heavy smoke.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "The fire caused heavy smoke, indicating potential environmental and health impacts."
+      },
+      "category": {
+        "label": "Industrial Accident",
+        "confidence": 0.9,
+        "keywords": [
+          "fire",
+          "refinery",
+          "smoke"
+        ]
+      },
+      "type": {
+        "domain": "Environment",
+        "subcategory": "Industrial Incident"
+      },
+      "summary": "A fire occurred at the Petrobras refinery in Cubatão, causing heavy smoke.",
+      "impacted_entities": [
+        "Petrobras refinery",
+        "Cubatão",
+        "environment"
+      ],
+      "likely_consequences": [
+        "air pollution",
+        "health risks",
+        "environmental damage"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [
+        "Petrobras"
+      ],
+      "locations": [
+        "Cubatão",
+        "Petrobras refinery"
+      ],
+      "dates": [
+        "July 2nd"
+      ],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "Identified keywords: fire, refinery, smoke.",
+        "Determined the incident occurred at a Petrobras refinery.",
+        "Assessed potential environmental and health impacts."
+      ],
+      "reasoning": "The text describes an industrial accident with potential negative impacts on the environment and health, meeting the criteria for an issue."
+    }
+  },
+  {
+    "id": "ex03",
+    "input_text": "The mayor of Recife announced emergency measures after floods displaced over 300 families.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "Floods displaced over 300 families, indicating a significant impact on community."
+      },
+      "category": {
+        "label": "Natural Disaster",
+        "confidence": 0.9,
+        "keywords": [
+          "floods",
+          "emergency",
+          "displaced"
+        ]
+      },
+      "type": {
+        "domain": "Public Safety",
+        "subcategory": "Environmental Disaster"
+      },
+      "summary": "Floods in Recife displaced over 300 families.",
+      "impacted_entities": [
+        "Recife",
+        "300 families"
+      ],
+      "likely_consequences": [
+        "homelessness",
+        "economic loss",
+        "health risks"
+      ]
+    },
+    "named_entities": {
+      "persons": [
+        "mayor of Recife"
+      ],
+      "organizations": [],
+      "locations": [
+        "Recife"
+      ],
+      "dates": [],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "Identified keywords: floods, emergency, displaced.",
+        "Determined the situation to be a natural disaster.",
+        "Assessed the severity based on the number of displaced families."
+      ],
+      "reasoning": "The text describes a situation where floods caused significant displacement, prompting emergency measures. This indicates a negative issue affecting public safety and community well-being."
+    }
+  },
+  {
+    "id": "ex04",
+    "input_text": "Teachers from the University of Brasília are on strike due to unpaid salaries since March.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "The strike affects education services, but immediate physical harm is not indicated."
+      },
+      "category": {
+        "label": "Labor Dispute",
+        "confidence": 0.9,
+        "keywords": [
+          "strike",
+          "unpaid salaries",
+          "teachers"
+        ]
+      },
+      "type": {
+        "domain": "Education",
+        "subcategory": "Labor Relations"
+      },
+      "summary": "Teachers at the University of Brasília are on strike due to unpaid salaries.",
+      "impacted_entities": [
+        "University of Brasília",
+        "Teachers",
+        "Students"
+      ],
+      "likely_consequences": [
+        "Disruption in academic activities",
+        "Financial losses for the university"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [
+        "University of Brasília"
+      ],
+      "locations": [
+        "Brasília"
+      ],
+      "dates": [
+        "March"
+      ],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "Identified keywords: strike, unpaid salaries, teachers.",
+        "Determined the context: labor dispute in education sector.",
+        "Evaluated impact: moderate due to service disruption."
+      ],
+      "reasoning": "The input text describes a labor dispute affecting the University of Brasília, fitting the definition of an issue with potential negative impact on education services."
+    }
+  },
+  {
+    "id": "ex05",
+    "input_text": "The Federal Police raided a warehouse in Rio de Janeiro suspected of illegal medicine storage.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "The situation involves suspected illegal storage of medicine, which can pose health risks to the public, but there's no indication of immediate harm or widespread impact."
+      },
+      "category": {
+        "label": "Illegal Medicine Storage",
+        "confidence": 0.9,
+        "keywords": [
+          "illegal medicine",
+          "warehouse raid",
+          "Federal Police"
+        ]
+      },
+      "type": {
+        "domain": "Public Health",
+        "subcategory": "Illegal Medicine"
+      },
+      "summary": "Federal Police raided a warehouse in Rio de Janeiro suspected of storing illegal medicine.",
+      "impacted_entities": [
+        "Public Health",
+        "Rio de Janeiro"
+      ],
+      "likely_consequences": [
+        "Potential health risks to consumers",
+        "Legal consequences for those involved"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [
+        "Federal Police"
+      ],
+      "locations": [
+        "Rio de Janeiro"
+      ],
+      "dates": [],
+      "misc": [
+        "warehouse"
+      ]
+    },
+    "explanation": {
+      "steps": [
+        "Identified the main entities involved: Federal Police, warehouse, Rio de Janeiro.",
+        "Determined the action: raid on a suspected illegal medicine storage.",
+        "Assessed potential impact: health risks and legal consequences."
+      ],
+      "reasoning": "The situation describes a law enforcement action against suspected illegal medicine storage, indicating a potential public health issue."
+    }
+  },
+  {
+    "id": "ex06",
+    "input_text": "A severe drought in the state of Bahia has impacted local farmers and water supply systems.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "high",
+        "justification": "The drought is described as severe and has impacted farmers and water supply systems, indicating significant consequences."
+      },
+      "category": {
+        "label": "Environmental Disaster",
+        "confidence": 0.9,
+        "keywords": [
+          "drought",
+          "environmental",
+          "crisis"
+        ]
+      },
+      "type": {
+        "domain": "Environment",
+        "subcategory": "Drought"
+      },
+      "summary": "Severe drought in Bahia impacts farmers and water supply.",
+      "impacted_entities": [
+        "local farmers",
+        "water supply systems"
+      ],
+      "likely_consequences": [
+        "crop failures",
+        "water shortages",
+        "economic losses"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [],
+      "locations": [
+        "Bahia"
+      ],
+      "dates": [],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "The input text describes a drought, which is an event with negative impact.",
+        "The drought is specified as severe, indicating significant consequences.",
+        "The drought affects farmers and water supply systems, confirming it as an issue."
+      ],
+      "reasoning": "The text clearly describes a severe drought with negative impacts, meeting the criteria for an issue."
+    }
+  },
+  {
+    "id": "ex07",
+    "input_text": "Residents in the north zone of Manaus reported internet and mobile network outages since yesterday.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "The outage affects residents' ability to access internet and mobile services, impacting daily activities and communication."
+      },
+      "category": {
+        "label": "Network Outage",
+        "confidence": 0.9,
+        "keywords": [
+          "internet",
+          "mobile network",
+          "outage"
+        ]
+      },
+      "type": {
+        "domain": "Infrastructure",
+        "subcategory": "Telecommunications"
+      },
+      "summary": "Internet and mobile network outages reported in the north zone of Manaus.",
+      "impacted_entities": [
+        "residents of Manaus",
+        "internet users",
+        "mobile subscribers"
+      ],
+      "likely_consequences": [
+        "disruption of communication",
+        "impact on daily activities",
+        "potential economic losses"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [],
+      "locations": [
+        "Manaus",
+        "north zone"
+      ],
+      "dates": [
+        "yesterday"
+      ],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "The input text reports a specific event affecting residents.",
+        "The event involves internet and mobile network outages.",
+        "Outages are considered issues as they have a negative impact on people and services."
+      ],
+      "reasoning": "The text describes a situation with potential negative impact on people and infrastructure, specifically a network outage affecting residents' access to essential services."
+    }
+  },
+  {
+    "id": "ex08",
+    "input_text": "An oil spill near the port of Santos threatens marine wildlife and fishing communities.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "high",
+        "justification": "The oil spill has the potential to cause significant harm to marine wildlife and fishing communities, which are crucial for the ecosystem and local economy."
+      },
+      "category": {
+        "label": "Environmental Disaster",
+        "confidence": 0.9,
+        "keywords": [
+          "oil spill",
+          "marine wildlife",
+          "fishing communities"
+        ]
+      },
+      "type": {
+        "domain": "Environment",
+        "subcategory": "Oil Spill"
+      },
+      "summary": "An oil spill near the port of Santos poses a threat to marine wildlife and fishing communities.",
+      "impacted_entities": [
+        "marine wildlife",
+        "fishing communities",
+        "port of Santos"
+      ],
+      "likely_consequences": [
+        "ecosystem damage",
+        "economic losses",
+        "health risks"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [],
+      "locations": [
+        "port of Santos"
+      ],
+      "dates": [],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "The input text describes an event with potential negative impact.",
+        "The event involves an oil spill, which is a known environmental hazard.",
+        "The spill threatens marine wildlife and fishing communities, indicating significant potential harm."
+      ],
+      "reasoning": "The text clearly describes an issue with negative implications for the environment and local communities, meeting the criteria for an 'issue'."
+    }
+  },
+  {
+    "id": "ex09",
+    "input_text": "On August 10th, a landslide hit a road in Petrópolis, injuring at least 12 people.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "The landslide resulted in injuries to at least 12 people, indicating a moderate level of severity."
+      },
+      "category": {
+        "label": "Natural Disaster",
+        "confidence": 0.9,
+        "keywords": [
+          "landslide",
+          "injuries",
+          "road"
+        ]
+      },
+      "type": {
+        "domain": "Public Safety",
+        "subcategory": "Natural Disaster Response"
+      },
+      "summary": "A landslide occurred in Petrópolis, injuring multiple people.",
+      "impacted_entities": [
+        "people",
+        "road",
+        "Petrópolis"
+      ],
+      "likely_consequences": [
+        "further injuries",
+        "property damage",
+        "disruption of transportation"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [],
+      "locations": [
+        "Petrópolis"
+      ],
+      "dates": [
+        "August 10th"
+      ],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "Identified the event as a landslide, which is a type of natural disaster.",
+        "Determined that the event resulted in injuries, indicating a negative impact.",
+        "Assessed the severity based on the number of injuries reported."
+      ],
+      "reasoning": "The text describes a landslide that caused injuries, fitting the definition of an issue with potential negative impact on people and infrastructure."
+    }
+  },
+  {
+    "id": "ex10",
+    "input_text": "Reports of child labor violations were found in rural areas of Minas Gerais.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "critical",
+        "justification": "Child labor violations have severe and long-lasting impacts on children's well-being, education, and future opportunities."
+      },
+      "category": {
+        "label": "Child Labor",
+        "confidence": 0.95,
+        "keywords": [
+          "child labor",
+          "violations",
+          "Minas Gerais"
+        ]
+      },
+      "type": {
+        "domain": "Public Safety",
+        "subcategory": "Child Exploitation"
+      },
+      "summary": "Child labor violations reported in rural Minas Gerais.",
+      "impacted_entities": [
+        "children",
+        "rural communities"
+      ],
+      "likely_consequences": [
+        "physical harm",
+        "psychological trauma",
+        "education deprivation"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [],
+      "locations": [
+        "Minas Gerais"
+      ],
+      "dates": [],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "Identified keywords: child labor, violations, rural areas, Minas Gerais.",
+        "Mapped keywords to issue categories: Child Labor.",
+        "Assessed severity based on potential impact on children."
+      ],
+      "reasoning": "The input text describes a situation with potential negative impact on children, indicating a critical issue of child labor violations."
+    }
+  },
+  {
+    "id": "ex11",
+    "input_text": "A peaceful protest led by students took place in front of the Legislative Assembly of São Paulo.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "low",
+        "justification": "The protest was described as peaceful, indicating no immediate threat to safety or property."
+      },
+      "category": {
+        "label": "Student Protest",
+        "confidence": 0.8,
+        "keywords": [
+          "protest",
+          "students",
+          "peaceful"
+        ]
+      },
+      "type": {
+        "domain": "Public Safety",
+        "subcategory": "Demonstration"
+      },
+      "summary": "A peaceful student-led protest occurred at the Legislative Assembly of São Paulo.",
+      "impacted_entities": [
+        "Legislative Assembly of São Paulo",
+        "students"
+      ],
+      "likely_consequences": [
+        "potential policy changes",
+        "public awareness"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [
+        "Legislative Assembly of São Paulo"
+      ],
+      "locations": [
+        "São Paulo"
+      ],
+      "dates": [],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "The text describes a protest, which is an event with potential negative impact.",
+        "The protest is led by students and took place in front of a government building.",
+        "The protest is described as peaceful, which reduces the severity."
+      ],
+      "reasoning": "The text describes a protest, which is an issue by definition. Although it's peaceful, it still has potential impact on public safety and policy."
+    }
+  },
+  {
+    "id": "ex12",
+    "input_text": "The Ministry of Health warned about a dengue outbreak in the city of Campinas.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "The warning of an outbreak indicates a potential for significant health impact, but the severity is not critical as it is a preventable disease with existing healthcare measures."
+      },
+      "category": {
+        "label": "Health Outbreak",
+        "confidence": 0.9,
+        "keywords": [
+          "dengue",
+          "outbreak",
+          "health",
+          "warning"
+        ]
+      },
+      "type": {
+        "domain": "Public Health",
+        "subcategory": "Infectious Disease Outbreak"
+      },
+      "summary": "The Ministry of Health has issued a warning about a dengue outbreak in Campinas.",
+      "impacted_entities": [
+        "residents of Campinas",
+        "public health services"
+      ],
+      "likely_consequences": [
+        "increased cases of dengue fever",
+        "strain on healthcare resources"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [
+        "Ministry of Health"
+      ],
+      "locations": [
+        "Campinas"
+      ],
+      "dates": [],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "The input text mentions a 'dengue outbreak', which indicates a health issue.",
+        "The Ministry of Health warning suggests an official concern about the situation.",
+        "The context implies potential negative impacts on public health."
+      ],
+      "reasoning": "The text clearly describes a situation with potential negative impact on public health, specifically a dengue outbreak warned by the Ministry of Health in Campinas."
+    }
+  },
+  {
+    "id": "ex13",
+    "input_text": "A cyberattack targeted government servers in Brasília, delaying tax return submissions.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "The cyberattack caused a delay in tax return submissions, which can have financial implications for individuals and businesses, but it did not result in a catastrophic failure of critical infrastructure or loss of life."
+      },
+      "category": {
+        "label": "Cyberattack",
+        "confidence": 0.9,
+        "keywords": [
+          "cyberattack",
+          "government",
+          "servers"
+        ]
+      },
+      "type": {
+        "domain": "Infrastructure",
+        "subcategory": "Cyber Security"
+      },
+      "summary": "A cyberattack targeted government servers in Brasília, causing a delay in tax return submissions.",
+      "impacted_entities": [
+        "government servers",
+        "taxpayers"
+      ],
+      "likely_consequences": [
+        "financial losses",
+        "delayed tax refunds",
+        "potential data breach"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [
+        "government"
+      ],
+      "locations": [
+        "Brasília"
+      ],
+      "dates": [],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "The input text describes a cyberattack on government servers.",
+        "The cyberattack caused a delay in tax return submissions.",
+        "This situation has potential negative impacts on individuals and businesses."
+      ],
+      "reasoning": "The text clearly describes a cyberattack with negative consequences, meeting the criteria for an issue."
+    }
+  },
+  {
+    "id": "ex14",
+    "input_text": "A criminal gang was arrested in Fortaleza for embezzling public school meal funds.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "Embezzlement of public funds intended for school meals impacts the well-being of students and undermines trust in public institutions."
+      },
+      "category": {
+        "label": "Corruption and Fraud",
+        "confidence": 0.9,
+        "keywords": [
+          "embezzlement",
+          "corruption",
+          "fraud",
+          "public funds"
+        ]
+      },
+      "type": {
+        "domain": "Public Safety",
+        "subcategory": "Financial Corruption"
+      },
+      "summary": "Criminal gang arrested for embezzling school meal funds in Fortaleza.",
+      "impacted_entities": [
+        "students",
+        "public schools",
+        "Fortaleza community"
+      ],
+      "likely_consequences": [
+        "loss of trust in public institutions",
+        "potential harm to students' health and education"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [],
+      "locations": [
+        "Fortaleza"
+      ],
+      "dates": [],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "Identified keywords: 'criminal gang', 'arrested', 'embezzling', indicating a negative issue.",
+        "Determined the issue involves financial corruption and impacts public safety.",
+        "Assessed the severity based on the potential impact on students and public trust."
+      ],
+      "reasoning": "The input text describes a situation where a criminal gang was arrested for embezzling funds meant for public school meals, which is a clear indication of a negative issue related to corruption and fraud."
+    }
+  },
+  {
+    "id": "ex15",
+    "input_text": "Local community in Porto Alegre demands better waste collection and public lighting services.",
+    "is_issue": true,
+    "issue_analysis": {
+      "severity": {
+        "level": "moderate",
+        "justification": "The issue involves basic public services that impact daily life and community well-being."
+      },
+      "category": {
+        "label": "Public Services",
+        "confidence": 0.9,
+        "keywords": [
+          "waste collection",
+          "public lighting",
+          "community demands"
+        ]
+      },
+      "type": {
+        "domain": "Infrastructure",
+        "subcategory": "Public Services"
+      },
+      "summary": "Community demands better waste collection and public lighting in Porto Alegre.",
+      "impacted_entities": [
+        "Porto Alegre community"
+      ],
+      "likely_consequences": [
+        "improved quality of life",
+        "increased community satisfaction"
+      ]
+    },
+    "named_entities": {
+      "persons": [],
+      "organizations": [],
+      "locations": [
+        "Porto Alegre"
+      ],
+      "dates": [],
+      "misc": []
+    },
+    "explanation": {
+      "steps": [
+        "Identified key terms: 'demands', 'better waste collection', 'public lighting services'.",
+        "Determined the context: community in Porto Alegre.",
+        "Assessed impact: basic services affecting daily life."
+      ],
+      "reasoning": "The text describes a situation where a local community is demanding improvements in waste collection and public lighting services, indicating dissatisfaction with current public services."
+    }
+  }
+]

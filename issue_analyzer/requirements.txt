@@ -1,0 +1,7 @@
+langchain
+openai
+pydantic
+pyyaml
+structlog
+unittest
+langchain_community

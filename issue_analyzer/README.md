@@ -48,9 +48,9 @@ issue_analyzer/
 Clone this repository and install it in development mode:
 
 ```bash
-git clone https://your-repo-url/issue_analyzer.git
-cd issue_analyzer
-pip install -e .
+git clone https://github.com/LABIC-ICMC-USP/llm4gov
+mv llm4gov/issue_analyzer/* .
+pip install .
 ```
 
 Make sure to configure your API access in `config/llm_config.yaml`.

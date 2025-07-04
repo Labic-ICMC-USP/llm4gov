@@ -67,7 +67,7 @@ analyzer = IssueAnalyzer()
 text = "Power outage in downtown São Paulo disrupted hospitals and transit systems."
 result = analyzer.analyze(text)
 
-print(result.json(indent=2, ensure_ascii=False))
+print(result)
 ```
 
 This will return a structured JSON object containing classification results, including:

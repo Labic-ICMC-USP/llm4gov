@@ -2,7 +2,7 @@
 
 **Issue Analyzer** is a modular Python package for detecting and classifying issues from short text inputs using a Large Language Model (LLM) via LangChain. It returns enriched JSON outputs with structured information, including severity, issue category, impacted entities, named entities, and reasoning for classification.
 
-This tool is part of the larger **LLM4Gov** and **Websensors** initiative, focused on using language models for public sector applications, such as real-time issue detection, public monitoring, and data-driven policy design.
+This tool is part of the **LLM4Gov** and **Websensors** initiative, focused on using language models for public sector applications, such as real-time issue detection, public monitoring, and data-driven policy design.
 
 ---
 

@@ -1,0 +1,23 @@
+Gere exatamente {k} pares de pergunta e resposta baseados no texto fornecido.
+
+Cada pergunta deve:
+- Estar diretamente relacionada ao conteúdo.
+- Ser relevante e informativa.
+- Evitar ser muito geral ou óbvia.
+
+Cada resposta deve:
+- Ser curta, direta e informativa.
+- Evitar repetir a pergunta.
+- Não incluir suposições externas.
+- Focar principalmente em RECURSO_PROVIDO, RECURSOS_PRE_REQUISITOS, RECURSOS_INFO_ADICIONAL.
+- Fazer perguntas em que as respostas estejam disponíveis em RECURSO_PROVIDO.
+
+IMPORTANTE: Você DEVE retornar APENAS uma lista JSON válida. Não inclua texto adicional, explicações ou formatação markdown.
+
+Retorne EXATAMENTE no formato JSON abaixo (sem texto adicional):
+[
+  {
+    "question": "string",
+    "answer": "string"
+  }
+]

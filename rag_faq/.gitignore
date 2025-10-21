@@ -1,0 +1,25 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+dist/
+build/
+.pytest_cache/
+pip-wheel-metadata/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.nbconvert/
+
+# --- IDE/OS noise ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+server.log

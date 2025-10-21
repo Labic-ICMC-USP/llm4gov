@@ -1,0 +1,25 @@
+llm:
+  faq_generator:
+    provider: openrouter
+    model: meta-llama/llama-4-scout
+    temperature: 0.0
+    api_key: API_KEY
+
+  rag_answer:
+    provider: openrouter
+    model: meta-llama/llama-4-scout
+    temperature: 0.0
+    api_key: API_KEY
+
+embedding:
+  model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+
+retrieval:
+  top_k: 5
+
+indexing:
+  questions_per_text: 10
+
+paths:
+  projects_dir: ./projects
+  prompts_dir: ./prompts

@@ -1,0 +1,8 @@
+setup.cfg
+setup.py
+rag_faq.egg-info/PKG-INFO
+rag_faq.egg-info/SOURCES.txt
+rag_faq.egg-info/dependency_links.txt
+rag_faq.egg-info/entry_points.txt
+rag_faq.egg-info/requires.txt
+rag_faq.egg-info/top_level.txt

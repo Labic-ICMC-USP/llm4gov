@@ -38,7 +38,7 @@ pipeline:
       course_name: "Bacharelado em Estatística"
     - name: "ppp_bmacc"
       csv_file: "data/ppp_bmacc/ppp_bmacc_chunks.csv"
-      course_name: "Bacharelado em Matemática Aplicada e Computacional"
+      course_name: "Bacharelado em Matemática Aplicada e Computação Científica"
     - name: "ppp_bmat"
       csv_file: "data/ppp_bmat/ppp_bmat_chunks.csv"
       course_name: "Bacharelado em Matemática"

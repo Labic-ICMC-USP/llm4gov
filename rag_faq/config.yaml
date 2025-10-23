@@ -20,6 +20,44 @@ retrieval:
 indexing:
   questions_per_text: 10
 
+# FAQ-GENERATION PIPELINE CONFIGURATION
+pipeline:
+  # Available personas
+  personas: ["aluno", "professor", "pesquisador"]
+  
+  # Available data sources
+  data_sources:
+    - name: "ppp_bcc"
+      csv_file: "data/ppp_bcc/ppp_bcc_chunks.csv"
+      course_name: "Bacharelado em Ciência da Computação"
+    - name: "ppp_bcd"
+      csv_file: "data/ppp_bcd/ppp_bcd_chunks.csv"
+      course_name: "Bacharelado em Ciência de Dados"
+    - name: "ppp_best"
+      csv_file: "data/ppp_best/ppp_best_chunks.csv"
+      course_name: "Bacharelado em Estatística"
+    - name: "ppp_bmacc"
+      csv_file: "data/ppp_bmacc/ppp_bmacc_chunks.csv"
+      course_name: "Bacharelado em Matemática Aplicada e Computacional"
+    - name: "ppp_bmat"
+      csv_file: "data/ppp_bmat/ppp_bmat_chunks.csv"
+      course_name: "Bacharelado em Matemática"
+    - name: "ppp_bsi"
+      csv_file: "data/ppp_bsi/ppp_bsi_chunks.csv"
+      course_name: "Bacharelado em Sistemas de Informação"
+    - name: "ppp_engcomp"
+      csv_file: "data/ppp_engcomp/ppp_engcomp_chunks.csv"
+      course_name: "Engenharia da Computação"
+    - name: "ppp_lce"
+      csv_file: "data/ppp_lce/ppp_lce_chunks.csv"
+      course_name: "Licenciatura em Ciências Exatas"
+    - name: "ppp_lmat"
+      csv_file: "data/ppp_lmat/ppp_lmat_chunks.csv"
+      course_name: "Licenciatura em Matemática"
+    - name: "dataset_sample"
+      csv_file: "data/dataset_sample.csv"
+      course_name: "Sample Dataset"
+
 paths:
   projects_dir: ./projects
   prompts_dir: ./prompts

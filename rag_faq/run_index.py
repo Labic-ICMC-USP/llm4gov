@@ -28,19 +28,23 @@ def run_index(config, project_dir, data_source=None, persona_type=None, mode="in
         if source_config:
             csv_file = source_config["csv_file"]
             course_name = source_config["course_name"]
+            course_dir_name = source_config["name"]  # Use the course directory name
         else:
             # Assume it's a direct file path
             csv_file = data_source
             course_name = "Unknown Course"
+            course_dir_name = "unknown_course"
     else:
         # Default to first available data source
         if data_sources:
             source_config = data_sources[0]
             csv_file = source_config["csv_file"]
             course_name = source_config["course_name"]
+            course_dir_name = source_config["name"]
         else:
             csv_file = "data/dataset_sample.csv"
             course_name = "Sample Dataset"
+            course_dir_name = "sample_dataset"
     
     print(f"📊 Using data source: {csv_file}")
     print(f"🎓 Course: {course_name}")
@@ -53,9 +57,13 @@ def run_index(config, project_dir, data_source=None, persona_type=None, mode="in
     texts = df["text"].tolist()
     print(f"📝 Loaded {len(texts)} text chunks")
     
+    # Create course-specific directory first
+    course_dir = os.path.join(project_dir, course_dir_name)
+    os.makedirs(course_dir, exist_ok=True)
+    
     # Create subdirectories based on mode
     if mode == "individual":
-        output_dir = os.path.join(project_dir, "individual")
+        output_dir = os.path.join(course_dir, "individual")
         os.makedirs(output_dir, exist_ok=True)
         
         # Single persona generation
@@ -67,7 +75,7 @@ def run_index(config, project_dir, data_source=None, persona_type=None, mode="in
         embed_faqs(config, output_dir)
         
     elif mode == "unificado":
-        output_dir = os.path.join(project_dir, "unificado")
+        output_dir = os.path.join(course_dir, "unificado")
         os.makedirs(output_dir, exist_ok=True)
         
         # Multi-persona generation

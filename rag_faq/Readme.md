@@ -20,9 +20,10 @@ run_index.py                # Script principal para indexação
 config.yaml                 # Configurações do sistema
 README.md                   # Documentação técnica
 USAGE_GUIDE.md              # Guia de uso detalhado
-faq_gen.ipynb               # Geração manual de FAQs e construção de embeddings
-load_pdf.ipynb              # Pré-processamento de PDF: dividir em páginas/chunks e exportar CSVs
-rag_faq_demo.ipynb          # Demo RAG completo: construir FAQs, incorporar e consultar interativamente
+notebooks/
+  ├─ faq_gen.ipynb          # Geração manual de FAQs e construção de embeddings
+  ├─ load_pdf.ipynb         # Pré-processamento de PDF: dividir em páginas/chunks e exportar CSVs
+  └─ rag_faq_demo.ipynb     # Demo RAG completo: construir FAQs, incorporar e consultar interativamente
 prompts/
   ├─ persona_aluno.txt
   ├─ persona_pesquisador.txt

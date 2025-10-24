@@ -6,13 +6,13 @@
 O sistema gera FAQs automaticamente a partir de documentos brutos com o auxílio de um Modelo de Linguagem (LLM), converte as perguntas em vetores semânticos por meio de **Sentence-Transformers**, realiza a busca por **similaridade de cosseno** para identificar os trechos mais relevantes e, por fim, gera respostas fundamentadas com um LLM, condicionadas ao contexto recuperado.
 
 ## 🏗️ Arquitetura
-- **📝 Geração de FAQs (indexação):** `rag_faq/indexer.py` usa `langchain_openai.ChatOpenAI` com prompts para transformar textos brutos em *k* pares pergunta-resposta → salvo como **`faq.csv`**.
-- **🔢 Embeddings:** `rag_faq/embedder.py` codifica as strings de **pergunta** com `SentenceTransformer(model)` e salva **`embeddings.npy`** e **`faq_with_embeddings.csv`**.
-- **🔍 Recuperação:** `rag_faq/retriever.py` carrega `embeddings.npy` e calcula similaridade de cosseno (via `sklearn.metrics.pairwise.cosine_similarity`) entre a pergunta do usuário e os vetores das FAQs; retorna as entradas top‑k de `faq.csv`.
-- **💬 Geração:** `rag_faq/generator.py` chama um LLM com um template de prompt e o contexto recuperado para compor a resposta final.
-- **⚡ CLI:** `rag_faq/main.py` orquestra **`--mode index`** (generate_faqs → embed_faqs) e **`--mode query`** (RAG interativo).
-- **🌐 Servidor (HTTP):** `rag_faq/server.py` expõe uma aplicação Flask mínima com um formulário no navegador e um endpoint `/api/ask` que encapsula `generate_rag_answer`.
-- **🚀 Script driver:** `run_index.py` é utilizado quando o modo `--mode index` é executado, demonstrando a construção de um projeto a partir de configurações desejadas.
+- **Geração de FAQs (indexação):** `rag_faq/indexer.py` usa `langchain_openai.ChatOpenAI` com prompts para transformar textos brutos em *k* pares pergunta-resposta → salvo como **`faq.csv`**.
+- **Embeddings:** `rag_faq/embedder.py` codifica as strings de **pergunta** com `SentenceTransformer(model)` e salva **`embeddings.npy`** e **`faq_with_embeddings.csv`**.
+- **Recuperação:** `rag_faq/retriever.py` carrega `embeddings.npy` e calcula similaridade de cosseno (via `sklearn.metrics.pairwise.cosine_similarity`) entre a pergunta do usuário e os vetores das FAQs; retorna as entradas top‑k de `faq.csv`.
+- **Geração:** `rag_faq/generator.py` chama um LLM com um template de prompt e o contexto recuperado para compor a resposta final.
+- **CLI:** `rag_faq/main.py` orquestra **`--mode index`** (generate_faqs → embed_faqs) e **`--mode query`** (RAG interativo).
+- **Servidor (HTTP):** `rag_faq/server.py` expõe uma aplicação Flask mínima com um formulário no navegador e um endpoint `/api/ask` que encapsula `generate_rag_answer`.
+- **Script driver:** `run_index.py` é utilizado quando o modo `--mode index` é executado, demonstrando a construção de um projeto a partir de configurações desejadas.
 
 ## 📁 Estrutura de Arquivos (arquivos principais)
 ```

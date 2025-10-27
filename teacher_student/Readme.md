@@ -205,7 +205,7 @@ O script realiza os seguintes passos:
 * Gera as respostas usando decodificação determinística (sem amostragem).  Após a geração, tenta converter a resposta em JSON; se não for possível, mantém como texto bruto.
 * Escreve as saídas em `output_file` com os campos `system_prompt`, `user_prompt` e `student_output`.
 
-# Execução no Google Colab
+## Execução no Google Colab
 
 Este tutorial também pode ser executado diretamente no **Google Colab**, inclusive na versão gratuita.  
 O ambiente do Colab já vem com GPU T4 (≈ 15 GB VRAM), o que é **suficiente para realizar o fine-tuning e a inferência** dos modelos estudantes otimizados com LoRA + quantização 4 bits.

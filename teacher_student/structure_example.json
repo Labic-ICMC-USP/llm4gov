@@ -1,0 +1,5 @@
+{
+  "document_id": "IDENTIFICADOR_UNICO_DO_DOCUMENTO",
+  "severity_level": "BAIXA|MEDIA|ALTA|CRITICA",
+  "explanation": "Resumo objetivo e técnico indicando os principais fatores de risco, impacto potencial e evidências extraídas do texto."
+}

@@ -11,6 +11,12 @@ llm:
     temperature: 0.0
     api_key: API_KEY
 
+  evaluator:
+    provider: openai
+    model: gpt-5
+    temperature: 0.0
+    api_key: API_KEY
+
 embedding:
   model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
 
@@ -19,6 +25,11 @@ retrieval:
 
 indexing:
   questions_per_text: 10
+
+evaluation:
+  num_questions: 10
+  num_variations: 5
+  top_k_values: [1, 3, 5]
 
 # FAQ-GENERATION PIPELINE CONFIGURATION
 pipeline:

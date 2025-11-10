@@ -1,0 +1,8 @@
+# student_inference_config.yaml (minimal)
+model_path: "lora_model"          # LoRA dir or merged model dir
+max_seq_length: 8192              # only exposed inference param (besides batch)
+max_new_tokens: 1024
+batch_size: 4                    # batch size for inference
+test_file: "test_unlabeled.json"  # must contain system_prompt + user_prompt
+output_file: "student_inference_output.json"
+log_file: "logs/student_inference.log"

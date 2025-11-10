@@ -1,0 +1,53 @@
+log_level: "INFO"
+log_file: "logs/student_finetune.log"
+
+model:
+  model_name: "unsloth/Phi-3.5-mini-instruct"
+  max_seq_length: 8192
+  dtype: null            # "float16", "bfloat16" ou null
+  load_in_4bit: true
+  token: null            # HF token se o modelo for gated
+
+lora:
+  r: 16
+  target_modules: ["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]
+  lora_alpha: 16
+  lora_dropout: 0.0
+  bias: "none"
+  use_gradient_checkpointing: "unsloth"
+  random_state: 3407
+  use_rslora: false
+  loftq_config: null
+
+train_args:
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 4
+  warmup_steps: 5
+  max_steps: 60          # ou null e use num_train_epochs
+  num_train_epochs: null
+  learning_rate: 0.0002
+  logging_steps: 5
+  optim: "adamw_8bit"
+  weight_decay: 0.01
+  lr_scheduler_type: "linear"
+  seed: 3407
+  output_dir: "outputs"
+  report_to: "none"      # "wandb" ou "tensorboard"
+  max_grad_norm: null
+
+trainer:
+  packing: false
+  dataset_text_field: "text"
+
+save:
+  save_lora_dir: "lora_model"
+  save_merged_16bit: false
+  save_merged_4bit: false
+  save_gguf: null        # ex: "q4_k_m" | "q8_0" | "f16"
+  push_to_hub: false
+  hf_repo: null
+  hf_token: null
+
+data:
+  labeled_file: "training_labeled.json"  # seu arquivo gerado pelo Teacher
+  max_examples: null

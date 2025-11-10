@@ -1,0 +1,15 @@
+fastrlock==0.8.3
+langchain==0.3.27
+langchain-community==0.3.31
+langchain-core==0.3.79
+langchain-openai==0.3.35
+langchain-text-splitters==0.3.11
+openai==1.109.1
+pydantic==2.11.10
+pydantic-settings==2.11.0
+pydantic_core==2.33.2
+sentence-transformers==5.1.1
+transformers==4.56.2
+trl==0.22.2
+unsloth==2025.10.9
+unsloth_zoo==2025.10.10

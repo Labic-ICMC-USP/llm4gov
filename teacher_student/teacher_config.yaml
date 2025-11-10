@@ -1,0 +1,19 @@
+model: "deepseek/deepseek-chat-v3-0324"
+api_key: "sk-xxxx"  # or leave empty and set OPENAI_API_KEY env var
+base_url: "https://openrouter.ai/api/v1"
+
+input_json: "training_unlabeled.json"
+output_json: "training_labeled.json"
+log_file: "teacher.log"
+
+temperature: 0.0
+num_workers: 8
+
+schema_name: "teacher_output_schema"
+schema_strict: true
+
+schema_example_path: "structure_example.json"
+
+# How teacher_output is stored in the final JSON
+teacher_output_mode: "dict"        # "dict" (recommended) or "field" (experimental)
+teacher_output_field: "summary"    # required only when mode == "field"

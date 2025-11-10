@@ -1,0 +1,602 @@
+[
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-201",
+      "texto": "Anomalia em medidores de temperatura da câmara fria indicou variação de 4ºC por 18 minutos. Produtos mantidos abaixo do limite; calibração agendada."
+    },
+    "student_output": {
+      "document_id": "DOC-201",
+      "severity_level": "BAIXA",
+      "explanation": "A variação de temperatura foi controlada e produtos mantiveram-se abaixo do limite, indicando que o risco foi mitigado sem impacto significativo. A calibração agendada sugere uma ação preventiva, mas sem evidências de interrupção relevante."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-202",
+      "texto": "Fornecedor de pneus reportou lote com desgaste prematuro acima do especificado. Entregas suspensas por 72 horas enquanto ocorre inspeção conjunta."
+    },
+    "student_output": {
+      "document_id": "DOC-202",
+      "severity_level": "MEDIA",
+      "explanation": "O risco identificado é o desgaste prematuro de pneus em um lote, o que pode afetar a qualidade e a confiabilidade dos produtos. A suspensão das entregas por 72 horas indica um impacto operacional moderado, mas com um plano de ação claro (inspeção conjunta). A probabilidade de ocorrência é baixa, uma vez que a suspensão é pontual e controlada."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-203",
+      "texto": "Surtos de latência na API de pagamento aumentaram P95 para 1,8s por 22 minutos. Sem falha total; mitigação com autoscaling aplicada."
+    },
+    "student_output": {
+      "document_id": "DOC-203",
+      "severity_level": "MEDIA",
+      "explanation": "Surtos de latência na API de pagamento com P95 de 1,8s por 22 minutos indicam um impacto moderado em desempenho. A falta de falha total e a mitigação com autoscaling sugerem controle limitado do problema, mas com potencial para afetar a experiência do usuário e a confiabilidade."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-204",
+      "texto": "Equipe de RH recebeu denúncia formal de discriminação em setor administrativo. Comissão será aberta em 5 dias; medidas preventivas em curso."
+    },
+    "student_output": {
+      "document_id": "DOC-204",
+      "severity_level": "MEDIA",
+      "explanation": "Denúncia formal de discriminação em setor administrativo indica um risco operacional e reputacional moderado. A comissão será aberta em 5 dias, o que sugere um impacto temporal limitado. Medidas preventivas em curso indicam que a organização está ativamente mitigando o risco."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-205",
+      "texto": "Detectada divergência de inventário de 2,1% em centro de distribuição. Auditoria cíclica iniciada; possíveis perdas por avaria e erro de registro."
+    },
+    "student_output": {
+      "document_id": "DOC-205",
+      "severity_level": "MEDIA",
+      "explanation": "A divergência de inventário de 2,1% em um centro de distribuição indica um risco operacional moderado. A auditoria cíclica é um passo para identificar perdas por avaria e erro de registro, mas o impacto financeiro ainda é indeterminado. A abrangência é limitada ao centro de distribuição, mas a probabilidade de identificar perdas é razoável."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-206",
+      "texto": "Falha em UPS do laboratório provocou desligamento de 2 estações de teste por 9 minutos. Sem perda de amostras; manutenção corretiva realizada."
+    },
+    "student_output": {
+      "document_id": "DOC-206",
+      "severity_level": "BAIXA",
+      "explanation": "A falha em UPS do laboratório resultou em um desligamento temporário de 2 estações de teste por 9 minutos. No entanto, não houve perda de amostras e a manutenção corretiva foi realizada, indicando um impacto limitado e fácil de mitigar."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-207",
+      "texto": "Campanha de phishing direcionada a equipes financeiras; 6 cliques registrados, sem credenciais submetidas. Bloqueio de domínio malicioso aplicado."
+    },
+    "student_output": {
+      "document_id": "DOC-207",
+      "severity_level": "MEDIA",
+      "explanation": "Campanha de phishing com 6 cliques registrados, mas sem credenciais submetidas, indicando um risco controlado. Bloqueio de domínio malicioso aplicado, mitigando a ameaça."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-208",
+      "texto": "Queda de 9 pontos no índice de satisfação em atendimento B2B após mudança de SLA. Principais queixas: tempo de resposta e falta de status."
+    },
+    "student_output": {
+      "document_id": "DOC-208",
+      "severity_level": "MEDIA",
+      "explanation": "Queda de 9 pontos no índice de satisfação em atendimento B2B após mudança de SLA indica impacto moderado em reputação e serviço. Principais queixas de tempo de resposta e falta de status sinalizam problemas operacionais e de comunicação."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-209",
+      "texto": "Interdição temporária de acesso viário à filial por obra municipal inesperada. Operação redirecionada; previsão de normalização em 36 horas."
+    },
+    "student_output": {
+      "document_id": "DOC-209",
+      "severity_level": "BAIXA",
+      "explanation": "O risco identificado é a interdição temporária de acesso viário à filial devido a uma obra municipal inesperada. A operação foi redirecionada e a previsão de normalização é em 36 horas, indicando um impacto limitado e fácil de mitigar."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-210",
+      "texto": "Auditoria de TI identificou 14 servidores sem patches críticos há 60 dias. Janela de manutenção emergencial programada para esta noite."
+    },
+    "student_output": {
+      "document_id": "DOC-210",
+      "severity_level": "MEDIA",
+      "explanation": "Risco moderado devido à presença de 14 servidores sem patches críticos há 60 dias, indicando vulnerabilidades potenciais. A janela de manutenção emergencial programada para esta noite mitiga o risco, mas a falta de patches críticos ainda pode levar a incidentes de segurança se não forem atendidos."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-211",
+      "texto": "Erro humano enviou e-mail de oferta com preço equivocado a 3.200 clientes. Landing page já corrigida; solicitação de honrar compras realizadas até a correção em avaliação."
+    },
+    "student_output": {
+      "document_id": "DOC-211",
+      "severity_level": "MEDIA",
+      "explanation": "Erro humano com envio de e-mail de oferta com preço equivocado a 3.200 clientes. A correção já foi aplicada na landing page e há uma solicitação de honrar compras realizadas até a correção. O impacto financeiro é limitado a clientes afetados, mas há um risco de perda de confiança e potencial de reclamações."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-212",
+      "texto": "Teste de DR em site secundário falhou na etapa de DNS failover por configuração desatualizada. Procedimento revisado; novo teste em 48 horas."
+    },
+    "student_output": {
+      "document_id": "DOC-212",
+      "severity_level": "MEDIA",
+      "explanation": "Teste de Disaster Recovery (DR) em site secundário falhou devido a uma configuração desatualizada, indicando um risco operacional moderado. A falha ocorreu na etapa de DNS failover, mas o procedimento foi revisado e um novo teste está agendado em 48 horas, sugerindo que o risco está sendo mitigado."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-213",
+      "texto": "Queda de 15% no rendimento da máquina de envase após manutenção. Vibração fora de faixa; equipe ajustando balanceamento."
+    },
+    "student_output": {
+      "document_id": "DOC-213",
+      "severity_level": "MEDIA",
+      "explanation": "Rendimento da máquina de envase reduzido em 15% após manutenção, indicando um problema de vibração fora da faixa. Ajuste do balanceamento em andamento pela equipe sugere que o problema está sendo mitigado, mas há impacto operacional moderado."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-214",
+      "texto": "Notificação de órgão ambiental por ruído acima do limite em obra noturna. Ajustes operacionais implementados; resposta formal em 7 dias."
+    },
+    "student_output": {
+      "document_id": "DOC-214",
+      "severity_level": "MEDIA",
+      "explanation": "Risco operacional com impacto ambiental moderado devido ao ruído excedente em uma obra noturna. Ajustes operacionais já implementados e resposta formal em 7 dias, indicando controle e mitigação do risco."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-215",
+      "texto": "Correção de segurança atrasou publicação do aplicativo em loja por 24 horas. Impacto em campanha de marketing previsto; plano de contingência acionado."
+    },
+    "student_output": {
+      "document_id": "DOC-215",
+      "severity_level": "MEDIA",
+      "explanation": "A correção de segurança atrasou a publicação do aplicativo em loja por 24 horas, impactando a campanha de marketing prevista. O plano de contingência já foi acionado, indicando que o risco foi identificado e mitigado, mas o impacto já foi sentido."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-216",
+      "texto": "Fuga de amônia detectada em baixa concentração em área técnica; alarme e evacuação preventiva executados. Sem feridos; inspeção em válvula de alívio."
+    },
+    "student_output": {
+      "document_id": "DOC-216",
+      "severity_level": "BAIXA",
+      "explanation": "Fuga de amônia em baixa concentração, com evacuação preventiva e sem feridos. Ação imediata e controle do incidente indicam risco limitado e fácil mitigação."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-217",
+      "texto": "Clientes relatam duplicidade de cobrança em 0,1% dos boletos emitidos hoje. Regra de conciliação ajustada; estorno programado."
+    },
+    "student_output": {
+      "document_id": "DOC-217",
+      "severity_level": "BAIXA",
+      "explanation": "O risco identificado é a duplicidade de cobrança em 0,1% dos boletos emitidos, o que é um problema pontual e com impacto limitado. A regra de conciliação ajustada e o estorno programado indicam que o risco já está sendo mitigado."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-218",
+      "texto": "Paralisação parcial de sindicato por 4 horas afetou expedição na unidade A. Atraso de 6% nos embarques do dia; negociação em andamento."
+    },
+    "student_output": {
+      "document_id": "DOC-218",
+      "severity_level": "MEDIA",
+      "explanation": "Paralisação parcial de sindicato por 4 horas causou atraso de 6% nos embarques do dia, indicando impacto operacional moderado. A negociação em andamento sugere que o problema pode ser resolvido, mas ainda há risco de agravamento."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-219",
+      "texto": "Erro em ETL de BI omitiu dados de duas filiais no relatório mensal. Reprocessamento completo em 6 horas; gestores informados."
+    },
+    "student_output": {
+      "document_id": "DOC-219",
+      "severity_level": "MEDIA",
+      "explanation": "O erro em ETL de BI omitiu dados de duas filiais, mas o reprocessamento foi concluído em 6 horas e gestores foram informados, indicando mitigação. O impacto é moderado, pois afetou relatórios mensais, mas não houve menção a perdas financeiras ou interrupções operacionais significativas."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-220",
+      "texto": "Fumaça em quadro elétrico do armazém detectada por sensor; brigada atuou e acionou bombeiros preventivamente. Operação retomada em 50 minutos."
+    },
+    "student_output": {
+      "document_id": "DOC-220",
+      "severity_level": "BAIXA",
+      "explanation": "Fumaça em quadro elétrico identificada e mitigada por brigada e bombeiros, com operação retomada em 50 minutos. Impacto limitado e fácil de mitigar, sem indicação de danos extensivos ou interrupção prolongada."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-221",
+      "texto": "Estoque de componentes críticos alcançou 1,2 dias após erro no MRP. Compras acionou fornecedor para entrega expressa; priorização de ordens ajustada."
+    },
+    "student_output": {
+      "document_id": "DOC-221",
+      "severity_level": "MEDIA",
+      "explanation": "O estoque de componentes críticos está 1,2 dias atrasado devido a um erro no MRP, mas ações corretivas foram tomadas, com compras acionando fornecedor para entrega expressa e ajuste de priorização de ordens. O impacto é moderado, mas há mitigação em andamento."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-222",
+      "texto": "Erros de conciliação com adquirente elevaram chargebacks em 0,6 p.p. na última semana. Análise de regras antifraude em curso."
+    },
+    "student_output": {
+      "document_id": "DOC-222",
+      "severity_level": "MEDIA",
+      "explanation": "Erros de conciliação com adquirente levaram a um aumento de 0,6 p.p. em chargebacks, indicando um impacto operacional e financeiro moderado. A análise de regras antifraude em curso sugere um esforço para mitigar o risco."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-223",
+      "texto": "Ponto de vulnerabilidade encontrado em endpoint legado sem autenticação forte. Plano de desativação e migração em 7 dias."
+    },
+    "student_output": {
+      "document_id": "DOC-223",
+      "severity_level": "MEDIA",
+      "explanation": "Vulnerabilidade em endpoint legado sem autenticação forte representa um risco moderado devido à possibilidade de acesso não autorizado. O plano de desativação e migração em 7 dias indica que o impacto será mitigado em curto prazo."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-224",
+      "texto": "Falha de compressor reduziu pressão de ar comprimido, afetando duas linhas por 25 minutos. Bypass ativado; manutenção preventiva adiantada."
+    },
+    "student_output": {
+      "document_id": "DOC-224",
+      "severity_level": "MEDIA",
+      "explanation": "A falha do compressor afetou duas linhas por 25 minutos, mas o bypass ativado mitigou o impacto. A manutenção preventiva adiantada sugere controle operacional eficiente."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-225",
+      "texto": "Falha em módulo fiscal causou rejeição de 0,7% das notas eletrônicas por 40 minutos. Reenvio automático concluído; sem multas."
+    },
+    "student_output": {
+      "document_id": "DOC-225",
+      "severity_level": "BAIXA",
+      "explanation": "A falha em módulo fiscal causou rejeição de 0,7% das notas eletrônicas por 40 minutos. No entanto, o reenvio automático foi concluído sem multas, indicando um impacto limitado e fácil de mitigar."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-226",
+      "texto": "Sistema antifurto falhou em duas lojas por 3 horas; aumento de perdas não identificado. Técnico do fornecedor em deslocamento."
+    },
+    "student_output": {
+      "document_id": "DOC-226",
+      "severity_level": "MEDIA",
+      "explanation": "Sistema antifurto falhou em duas lojas por 3 horas, indicando um impacto operacional moderado. O aumento de perdas não identificado sugere um impacto financeiro potencial, mas sem números específicos. O deslocamento do técnico do fornecedor pode agravar o problema, mas sem prazos indicados."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-227",
+      "texto": "Desalinhamento de antena em enlace de dados reduziu banda entre filiais. Reparo agendado para 22h; priorização de tráfego crítico aplicada."
+    },
+    "student_output": {
+      "document_id": "DOC-227",
+      "severity_level": "MEDIA",
+      "explanation": "O desalinhamento de antena em enlace de dados reduziu a banda entre filiais, mas o reparo agendado para 22h e a priorização de tráfego crítico aplicada mitigam o impacto. O risco é moderado devido à probabilidade razoável de afetar serviços e à necessidade de atenção operacional."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-228",
+      "texto": "Furto de equipamentos portáteis em veículo de serviço; valor estimado R$ 38 mil. Seguro acionado; reforço de escolta solicitado."
+    },
+    "student_output": {
+      "document_id": "DOC-228",
+      "severity_level": "MEDIA",
+      "explanation": "Furto de equipamentos portáteis em veículo de serviço com valor estimado de R$ 38 mil indica um impacto financeiro moderado. O seguro acionado sugere mitigação do risco, mas a solicitação de reforço de escolta indica a necessidade de ação imediata para evitar perdas adicionais."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-229",
+      "texto": "Solução de analytics enviou e-mail com anexos contendo dados mascarados, mas com metadados expostos (nomes de arquivos). Ajuste de política aplicado."
+    },
+    "student_output": {
+      "document_id": "DOC-229",
+      "severity_level": "BAIXA",
+      "explanation": "O risco identificado é a exposição de metadados (nomes de arquivos) em dados mascarados. A solução de analytics já enviou um e-mail com os dados mascarados e anexos, indicando que o risco já foi mitigado. A política de ajuste aplicada sugere que o risco foi controlado e não há impacto operacional ou regulatório significativo."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-230",
+      "texto": "Quebra de esteira transportadora interrompeu expedição por 35 minutos. Peça sobressalente instalada; backlog será normalizado em 6 horas."
+    },
+    "student_output": {
+      "document_id": "DOC-230",
+      "severity_level": "BAIXA",
+      "explanation": "Quebra de esteira transportadora causou interrupção de 35 minutos na expedição, mas a peça sobressalente foi instalada e o backlog será normalizado em 6 horas. O impacto é limitado e o problema foi mitigado rapidamente."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-231",
+      "texto": "Servidor LDAP esgotou conexões por pico de autenticação; fallback para nó secundário manteve operação. Rebalanceamento configurado."
+    },
+    "student_output": {
+      "document_id": "DOC-231",
+      "severity_level": "MEDIA",
+      "explanation": "O servidor LDAP esgotou conexões devido a um pico de autenticação, mas a operação foi mantida por meio de um fallback para nó secundário. O rebalanceamento configurado indica que o risco foi mitigado e a operação foi normalizada."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-232",
+      "texto": "Queda de 20% na eficiência do centro de usinagem após troca de ferramenta. Ajuste de parâmetros de corte em validação."
+    },
+    "student_output": {
+      "document_id": "DOC-232",
+      "severity_level": "MEDIA",
+      "explanation": "Queda de 20% na eficiência do centro de usinagem indica um impacto operacional moderado, mas com ajuste de parâmetros em validação, o risco pode ser mitigado em curto prazo."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-233",
+      "texto": "Aplicativo desktop apresenta travamentos em estação Windows 7 legada em filial. Roadmap de migração acelerado; workaround implantado."
+    },
+    "student_output": {
+      "document_id": "DOC-233",
+      "severity_level": "MEDIA",
+      "explanation": "O aplicativo desktop apresenta travamentos em uma filial com Windows 7, indicando um impacto operacional moderado. A implementação de um workaround e o plano de migração acelerado sugerem que o risco está sendo mitigado, mas ainda requer atenção."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-234",
+      "texto": "Oscilação de pressão em linha de vapor afetou pasteurização por 12 minutos. Lotes segregados para análise de qualidade."
+    },
+    "student_output": {
+      "document_id": "DOC-234",
+      "severity_level": "MEDIA",
+      "explanation": "Oscilação de pressão em linha de vapor afetou a pasteurização por 12 minutos, indicando um impacto operacional moderado. Lotes segregados para análise de qualidade sugerem uma resposta imediata, mas sem evidências de perda financeira ou segurança significativa."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-235",
+      "texto": "Erro de configuração expôs logs de aplicação em bucket público por 30 minutos. Sem PII; bucket tornado privado; chaves rotacionadas."
+    },
+    "student_output": {
+      "document_id": "DOC-235",
+      "severity_level": "MEDIA",
+      "explanation": "Erro de configuração expôs logs de aplicação em um bucket público por 30 minutos, mas sem PII. O problema foi rapidamente mitigado, com o bucket tornando-se privado e as chaves rotacionadas. O impacto é moderado, pois não houve acesso não autorizado, mas a exposição de logs pode ter implicações operacionais."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-236",
+      "texto": "Série de devoluções por embalagem danificada aumentou 60% em duas praças. Fornecedor de caixas acionado; reforço de paletização orientado."
+    },
+    "student_output": {
+      "document_id": "DOC-236",
+      "severity_level": "MEDIA",
+      "explanation": "Série de devoluções por embalagem danificada aumentou 60% em duas praças, indicando um impacto operacional e financeiro moderado. O fornecedor de caixas foi acionado e há reforço de paletização, sugerindo uma resposta em andamento."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-237",
+      "texto": "Receita federal solicitou esclarecimentos sobre crédito tributário utilizado no trimestre. Prazo de resposta: 10 dias; suporte jurídico mobilizado."
+    },
+    "student_output": {
+      "document_id": "DOC-237",
+      "severity_level": "MEDIA",
+      "explanation": "Risco moderado devido à necessidade de esclarecimento sobre crédito tributário, com prazo de resposta de 10 dias. O suporte jurídico mobilizado indica que há um impacto operacional e potencialmente financeiro, mas sem evidências de agravamento iminente."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-238",
+      "texto": "Painel de segurança reportou 3 tentativas de acesso forçado à portaria da planta. Polícia acionada; rondas intensificadas."
+    },
+    "student_output": {
+      "document_id": "DOC-238",
+      "severity_level": "ALTA",
+      "explanation": "Painel de segurança reportou 3 tentativas de acesso forçado à portaria da planta, indicando um risco de segurança física. A polícia foi acionada e as rondas foram intensificadas, sugerindo um evento iminente e potencial de agravamento."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-239",
+      "texto": "Aplicação de logística não calculou frete promocional em 4% dos pedidos por 50 minutos. Reprocessamento concluído; clientes informados."
+    },
+    "student_output": {
+      "document_id": "DOC-239",
+      "severity_level": "BAIXA",
+      "explanation": "O risco identificado é o erro de cálculo do frete promocional em 4% dos pedidos, que foi reparado e os clientes foram informados. O impacto foi limitado a um período curto (50 minutos) e a um percentual pequeno (4%) dos pedidos, sem mencionar impacto financeiro ou operacional significativo."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-240",
+      "texto": "Indício de conluio em licitação local detectado por padrão de propostas. Jurídico orienta suspensão e abertura de processo interno."
+    },
+    "student_output": {
+      "document_id": "DOC-240",
+      "severity_level": "ALTA",
+      "explanation": "Indício de conluio em licitação local é um risco regulatório com impacto potencial significativo, incluindo sanções legais e reputacional. A orientação do jurídico para suspensão e abertura de processo interno evidenciam urgência e abrangência."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-241",
+      "texto": "API de antifraude apresentou indisponibilidade intermitente; fallback para regras estáticas ativado. Monitoramento reforçado por 24 horas."
+    },
+    "student_output": {
+      "document_id": "DOC-241",
+      "severity_level": "MEDIA",
+      "explanation": "A indisponibilidade intermitente da API de antifraude, apesar do fallback para regras estáticas, indica um risco operacional moderado. O monitoramento reforçado por 24 horas sugere uma abordagem proativa para mitigar o impacto."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-242",
+      "texto": "Protesto de moradores interrompeu acesso secundário à obra por 3 horas. Reunião com lideranças locais marcada para amanhã."
+    },
+    "student_output": {
+      "document_id": "DOC-242",
+      "severity_level": "MEDIA",
+      "explanation": "O protesto de moradores interrompeu o acesso secundário à obra por 3 horas, indicando um impacto operacional moderado. A reunião com lideranças locais marcada para amanhã sugere um plano de mitigação em andamento."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-243",
+      "texto": "Sistema de chamados caiu por atualização automática não planejada; indisponível por 25 minutos. Janela de atualização bloqueada."
+    },
+    "student_output": {
+      "document_id": "DOC-243",
+      "severity_level": "MEDIA",
+      "explanation": "O sistema de chamados indisponível por 25 minutos, devido a uma atualização automática não planejada, indica um impacto operacional moderado. A janela de atualização bloqueada sugere uma falha de controle, mas sem evidências de impacto financeiro ou regulatório."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-244",
+      "texto": "Forno industrial excedeu limite de temperatura por 6 minutos; intertravamento atuou. Batch será reanalisado pelo controle de qualidade."
+    },
+    "student_output": {
+      "document_id": "DOC-244",
+      "severity_level": "BAIXA",
+      "explanation": "O forno industrial excedeu o limite de temperatura por 6 minutos, mas o intertravamento atuou, indicando que o risco foi mitigado. O batch afetado será reanalisado pelo controle de qualidade, sugerindo que o impacto é limitado e controlável."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-245",
+      "texto": "Queda de 11% na taxa de entrega de e-mails transacionais após mudança de domínio. Autenticação SPF/DKIM revisada; aquecimento de IP iniciado."
+    },
+    "student_output": {
+      "document_id": "DOC-245",
+      "severity_level": "MEDIA",
+      "explanation": "Queda de 11% na taxa de entrega de e-mails transacionais após mudança de domínio indica um impacto operacional moderado, mas com potencial para afetar a confiabilidade e a receita. A revisão de autenticação SPF/DKIM e o aquecimento de IP sugerem ações em andamento para mitigar o risco."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-246",
+      "texto": "Cliente governamental exigiu certificação adicional de segurança para renovação. GAPs identificados em criptografia em repouso; cronograma de adequação em 30 dias."
+    },
+    "student_output": {
+      "document_id": "DOC-246",
+      "severity_level": "MEDIA",
+      "explanation": "Risco moderado devido à exigência de certificação adicional de segurança por um cliente governamental, com GAPs em criptografia em repouso. O cronograma de adequação em 30 dias indica um prazo razoável para mitigação, mas ainda representa um impacto operacional e potencial de não conformidade."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-247",
+      "texto": "Falha em esteira de bagagens no aeroporto parceiro atrasou envio de amostras biológicas por 5 horas. Risco de validade em 12 horas; remarcação urgente em curso."
+    },
+    "student_output": {
+      "document_id": "DOC-247",
+      "severity_level": "MEDIA",
+      "explanation": "Risco de validade em 12 horas devido à falha na esteira de bagagens no aeroporto parceiro, atrasando o envio de amostras biológicas por 5 horas. Remarcação urgente em curso, indicando impacto operacional moderado e necessidade de ação imediata para evitar perda de validade."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-248",
+      "texto": "Selo de certificação expirado em equipamento crítico; inspeção extraordinária requerida. Produção seguirá com redundância ativada."
+    },
+    "student_output": {
+      "document_id": "DOC-248",
+      "severity_level": "MEDIA",
+      "explanation": "Selo de certificação expirado em equipamento crítico requer inspeção extraordinária, indicando um risco operacional moderado. A produção continuará com redundância ativada, mitigando o impacto potencial."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-249",
+      "texto": "Campanha negativa por blogueiro local elevou menções negativas em 300% numa semana. Time de PR iniciou resposta e engajamento com clientes afetados."
+    },
+    "student_output": {
+      "document_id": "DOC-249",
+      "severity_level": "MEDIA",
+      "explanation": "O aumento de 300% nas menções negativas em um blogueiro local indica um impacto moderado na reputação da empresa. A resposta do time de PR demonstra mitigação em andamento, mas a severidade permanece devido à probabilidade de continuidade do impacto negativo se não forem tomadas medidas adicionais."
+    }
+  },
+  {
+    "system_prompt": "TAREFA (PT-BR): Você é um analista de risco sênior. Classifique o texto fornecido em um nível de severidade e explique, de forma objetiva e técnica, o motivo da classificação. \n\nDEFINIÇÃO DO PROBLEMA: Dado um documento textual curto (ex.: comunicado, e-mail, relatório, ocorrência, notícia operacional), identifique o risco principal e atribua um nível de severidade considerando probabilidade de ocorrência, impacto potencial (financeiro, operacional, regulatório, reputacional, segurança), urgência e abrangência. \n\nNÍVEIS DE SEVERIDADE (use exatamente um):\n- BAIXA: risco pontual, impacto limitado, fácil de mitigar, baixa probabilidade ou já controlado; sem interrupção relevante.\n- MEDIA: risco com impacto moderado ou crescente; requer atenção e plano de ação próximo; chance razoável de afetar prazos/custos.\n- ALTA: risco com impacto elevado, probabilidade relevante ou sinais claros de agravamento; pode comprometer metas, serviços críticos ou gerar não conformidades.\n- CRITICA: risco iminente/grave, com alto impacto (segurança de pessoas, grande perda financeira, indisponibilidade ampla, incidente de compliance severo); exige resposta imediata e escalonamento.\n\nREGRAS:\n1) Leia o texto integralmente e seja conservador quando houver incerteza relevante.\n2) Sinalize evidências do próprio texto na explicação (termos, números, prazos, eventos).\n3) Não traga informações externas; baseie-se apenas no texto.\n4) Responda ESTRITAMENTE em JSON, sem comentários, sem texto fora do JSON.\n\nFORMATO DE SAÍDA (JSON): {\"document_id\": \"...\", \"severity_level\": \"BAIXA|MEDIA|ALTA|CRITICA\", \"explanation\": \"...\"}\n\nIMPORTANTE: Repetir o campo document_id do input exatamente como recebido.",
+    "user_prompt": {
+      "document_id": "DOC-250",
+      "texto": "Contaminação cruzada possível em linha de alimentos detectada por análise de swab. Lote retido; auditoria sanitária acionada e CAPA em elaboração."
+    },
+    "student_output": {
+      "document_id": "DOC-250",
+      "severity_level": "ALTA",
+      "explanation": "Contaminação cruzada em linha de alimentos é um risco de segurança sanitária elevado, com impacto potencial em saúde pública. Lote retido e auditoria sanitária acionada indicam ação imediata e abrangência. CAPA em elaboração sugere mitigação em curso, mas o risco ainda é considerado elevado devido à natureza do incidente."
+    }
+  }
+]

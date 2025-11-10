@@ -1,0 +1,93 @@
+{
+  "project_path": "projects/batch_proj/ppp_bsi",
+  "evaluation_summary": {
+    "total_subfolders": 2,
+    "total_questions": 100,
+    "retrieval_metrics": {
+      "hit_at_1": 0.81,
+      "hit_at_3": 0.95,
+      "hit_at_5": 0.96,
+      "mrr": 0.8686666666666667,
+      "precision_at_1": 0.81,
+      "precision_at_3": 0.5033333333333334,
+      "precision_at_5": 0.412,
+      "recall_at_1": 0.81,
+      "recall_at_3": 0.95,
+      "recall_at_5": 0.96,
+      "ndcg_at_1": 0.81,
+      "ndcg_at_3": 0.8878557852142874,
+      "ndcg_at_5": 0.8917243132866329
+    },
+    "generation_metrics": {
+      "avg_llm_score": 4.598,
+      "avg_correctness": 4.45,
+      "avg_completeness": 4.59,
+      "avg_relevance": 4.74,
+      "total_evaluated": 100
+    }
+  },
+  "subfolder_results": [
+    {
+      "project_path": "projects/batch_proj\\ppp_bsi\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.94,
+        "3": 0.98,
+        "5": 1.0
+      },
+      "mrr": 0.9606666666666667,
+      "precision_at_k": {
+        "1": 0.94,
+        "3": 0.44666666666666666,
+        "5": 0.32799999999999996
+      },
+      "recall_at_k": {
+        "1": 0.94,
+        "3": 0.98,
+        "5": 1.0
+      },
+      "ndcg_at_k": {
+        "1": 0.94,
+        "3": 0.9626185950714291,
+        "5": 0.97035565121612
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.758,
+        "avg_correctness": 4.74,
+        "avg_completeness": 4.7,
+        "avg_relevance": 4.82
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bsi\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.68,
+        "3": 0.92,
+        "5": 0.92
+      },
+      "mrr": 0.7766666666666667,
+      "precision_at_k": {
+        "1": 0.68,
+        "3": 0.56,
+        "5": 0.49599999999999994
+      },
+      "recall_at_k": {
+        "1": 0.68,
+        "3": 0.92,
+        "5": 0.92
+      },
+      "ndcg_at_k": {
+        "1": 0.68,
+        "3": 0.8130929753571458,
+        "5": 0.8130929753571458
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.438,
+        "avg_correctness": 4.16,
+        "avg_completeness": 4.48,
+        "avg_relevance": 4.66
+      }
+    }
+  ]
+}

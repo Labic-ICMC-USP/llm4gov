@@ -1,0 +1,650 @@
+{
+  "evaluation_summary": {
+    "total_projects": 20,
+    "total_questions": 1000,
+    "retrieval_metrics": {
+      "hit_at_1": 0.794,
+      "hit_at_3": 0.944,
+      "hit_at_5": 0.964,
+      "mrr": 0.86755,
+      "precision_at_1": 0.794,
+      "precision_at_3": 0.5010000000000001,
+      "precision_at_5": 0.38639999999999997,
+      "recall_at_1": 0.794,
+      "recall_at_3": 0.944,
+      "recall_at_5": 0.964,
+      "ndcg_at_1": 0.794,
+      "ndcg_at_3": 0.8839259919071463,
+      "ndcg_at_5": 0.8921451093110644
+    },
+    "generation_metrics": {
+      "avg_llm_score": 4.605899999999999,
+      "avg_correctness": 4.467,
+      "avg_completeness": 4.624,
+      "avg_relevance": 4.722,
+      "total_evaluated": 1000
+    }
+  },
+  "project_results": [
+    {
+      "project_path": "projects/batch_proj\\all_courses\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.72,
+        "3": 0.9,
+        "5": 0.94
+      },
+      "mrr": 0.8056666666666666,
+      "precision_at_k": {
+        "1": 0.72,
+        "3": 0.33333333333333326,
+        "5": 0.24
+      },
+      "recall_at_k": {
+        "1": 0.72,
+        "3": 0.9,
+        "5": 0.94
+      },
+      "ndcg_at_k": {
+        "1": 0.72,
+        "3": 0.8230929753571458,
+        "5": 0.8394435626633044
+      },
+      "generation_metrics": {
+        "avg_llm_score": 3.9840000000000004,
+        "avg_correctness": 3.72,
+        "avg_completeness": 3.8,
+        "avg_relevance": 4.44
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\all_courses\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.48,
+        "3": 0.72,
+        "5": 0.78
+      },
+      "mrr": 0.604,
+      "precision_at_k": {
+        "1": 0.48,
+        "3": 0.36,
+        "5": 0.272
+      },
+      "recall_at_k": {
+        "1": 0.48,
+        "3": 0.72,
+        "5": 0.78
+      },
+      "ndcg_at_k": {
+        "1": 0.48,
+        "3": 0.6235673556428624,
+        "5": 0.648531474110489
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.27,
+        "avg_correctness": 4.2,
+        "avg_completeness": 4.22,
+        "avg_relevance": 4.38
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bcc\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.9,
+        "3": 1.0,
+        "5": 1.0
+      },
+      "mrr": 0.9466666666666668,
+      "precision_at_k": {
+        "1": 0.9,
+        "3": 0.56,
+        "5": 0.46799999999999997
+      },
+      "recall_at_k": {
+        "1": 0.9,
+        "3": 1.0,
+        "5": 1.0
+      },
+      "ndcg_at_k": {
+        "1": 0.9,
+        "3": 0.9604743802857166,
+        "5": 0.9604743802857166
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.666,
+        "avg_correctness": 4.38,
+        "avg_completeness": 4.96,
+        "avg_relevance": 4.66
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bcc\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.88,
+        "3": 0.98,
+        "5": 1.0
+      },
+      "mrr": 0.9306666666666666,
+      "precision_at_k": {
+        "1": 0.88,
+        "3": 0.5333333333333333,
+        "5": 0.396
+      },
+      "recall_at_k": {
+        "1": 0.88,
+        "3": 0.98,
+        "5": 1.0
+      },
+      "ndcg_at_k": {
+        "1": 0.88,
+        "3": 0.9404743802857166,
+        "5": 0.9482114364304074
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.928,
+        "avg_correctness": 4.94,
+        "avg_completeness": 4.94,
+        "avg_relevance": 4.9
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bcd\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.88,
+        "3": 0.9,
+        "5": 0.9
+      },
+      "mrr": 0.89,
+      "precision_at_k": {
+        "1": 0.88,
+        "3": 0.4866666666666666,
+        "5": 0.37599999999999995
+      },
+      "recall_at_k": {
+        "1": 0.88,
+        "3": 0.9,
+        "5": 0.9
+      },
+      "ndcg_at_k": {
+        "1": 0.88,
+        "3": 0.8926185950714292,
+        "5": 0.8926185950714292
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.788,
+        "avg_correctness": 4.52,
+        "avg_completeness": 4.84,
+        "avg_relevance": 5.0
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bcd\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.84,
+        "3": 0.96,
+        "5": 0.98
+      },
+      "mrr": 0.905,
+      "precision_at_k": {
+        "1": 0.84,
+        "3": 0.6133333333333334,
+        "5": 0.536
+      },
+      "recall_at_k": {
+        "1": 0.84,
+        "3": 0.96,
+        "5": 0.98
+      },
+      "ndcg_at_k": {
+        "1": 0.84,
+        "3": 0.915711570428575,
+        "5": 0.9243251015900428
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.278,
+        "avg_correctness": 4.06,
+        "avg_completeness": 4.16,
+        "avg_relevance": 4.62
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_best\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.84,
+        "3": 0.98,
+        "5": 1.0
+      },
+      "mrr": 0.9083333333333333,
+      "precision_at_k": {
+        "1": 0.84,
+        "3": 0.44666666666666666,
+        "5": 0.3559999999999999
+      },
+      "recall_at_k": {
+        "1": 0.84,
+        "3": 0.98,
+        "5": 1.0
+      },
+      "ndcg_at_k": {
+        "1": 0.84,
+        "3": 0.9230929753571457,
+        "5": 0.9317065065186136
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.418,
+        "avg_correctness": 4.14,
+        "avg_completeness": 4.3,
+        "avg_relevance": 4.82
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_best\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.96,
+        "3": 1.0,
+        "5": 1.0
+      },
+      "mrr": 0.98,
+      "precision_at_k": {
+        "1": 0.96,
+        "3": 0.5933333333333333,
+        "5": 0.46799999999999997
+      },
+      "recall_at_k": {
+        "1": 0.96,
+        "3": 1.0,
+        "5": 1.0
+      },
+      "ndcg_at_k": {
+        "1": 0.96,
+        "3": 0.9852371901428583,
+        "5": 0.9852371901428583
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.787999999999999,
+        "avg_correctness": 4.76,
+        "avg_completeness": 4.72,
+        "avg_relevance": 4.88
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bmacc\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.64,
+        "3": 0.94,
+        "5": 0.98
+      },
+      "mrr": 0.7946666666666666,
+      "precision_at_k": {
+        "1": 0.64,
+        "3": 0.42666666666666664,
+        "5": 0.3
+      },
+      "recall_at_k": {
+        "1": 0.64,
+        "3": 0.94,
+        "5": 0.98
+      },
+      "ndcg_at_k": {
+        "1": 0.64,
+        "3": 0.8266603310000081,
+        "5": 0.8421344432893898
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.638,
+        "avg_correctness": 4.56,
+        "avg_completeness": 4.74,
+        "avg_relevance": 4.6
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bmacc\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.68,
+        "3": 1.0,
+        "5": 1.0
+      },
+      "mrr": 0.8333333333333335,
+      "precision_at_k": {
+        "1": 0.68,
+        "3": 0.5533333333333335,
+        "5": 0.44000000000000017
+      },
+      "recall_at_k": {
+        "1": 0.68,
+        "3": 1.0,
+        "5": 1.0
+      },
+      "ndcg_at_k": {
+        "1": 0.68,
+        "3": 0.8766603310000082,
+        "5": 0.8766603310000082
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.7860000000000005,
+        "avg_correctness": 4.72,
+        "avg_completeness": 4.9,
+        "avg_relevance": 4.74
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bmat\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.8,
+        "3": 1.0,
+        "5": 1.0
+      },
+      "mrr": 0.8966666666666667,
+      "precision_at_k": {
+        "1": 0.8,
+        "3": 0.44,
+        "5": 0.324
+      },
+      "recall_at_k": {
+        "1": 0.8,
+        "3": 1.0,
+        "5": 1.0
+      },
+      "ndcg_at_k": {
+        "1": 0.8,
+        "3": 0.9235673556428624,
+        "5": 0.9235673556428624
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.562,
+        "avg_correctness": 4.42,
+        "avg_completeness": 4.78,
+        "avg_relevance": 4.48
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bmat\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.92,
+        "3": 0.96,
+        "5": 0.96
+      },
+      "mrr": 0.9366666666666665,
+      "precision_at_k": {
+        "1": 0.92,
+        "3": 0.4933333333333333,
+        "5": 0.368
+      },
+      "recall_at_k": {
+        "1": 0.92,
+        "3": 0.96,
+        "5": 0.96
+      },
+      "ndcg_at_k": {
+        "1": 0.92,
+        "3": 0.9426185950714292,
+        "5": 0.9426185950714292
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.72,
+        "avg_correctness": 4.58,
+        "avg_completeness": 4.84,
+        "avg_relevance": 4.74
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bsi\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.94,
+        "3": 0.98,
+        "5": 1.0
+      },
+      "mrr": 0.9606666666666667,
+      "precision_at_k": {
+        "1": 0.94,
+        "3": 0.44666666666666666,
+        "5": 0.32799999999999996
+      },
+      "recall_at_k": {
+        "1": 0.94,
+        "3": 0.98,
+        "5": 1.0
+      },
+      "ndcg_at_k": {
+        "1": 0.94,
+        "3": 0.9626185950714291,
+        "5": 0.97035565121612
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.758,
+        "avg_correctness": 4.74,
+        "avg_completeness": 4.7,
+        "avg_relevance": 4.82
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_bsi\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.68,
+        "3": 0.92,
+        "5": 0.92
+      },
+      "mrr": 0.7766666666666667,
+      "precision_at_k": {
+        "1": 0.68,
+        "3": 0.56,
+        "5": 0.49599999999999994
+      },
+      "recall_at_k": {
+        "1": 0.68,
+        "3": 0.92,
+        "5": 0.92
+      },
+      "ndcg_at_k": {
+        "1": 0.68,
+        "3": 0.8130929753571458,
+        "5": 0.8130929753571458
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.438,
+        "avg_correctness": 4.16,
+        "avg_completeness": 4.48,
+        "avg_relevance": 4.66
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_engcomp\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.82,
+        "3": 0.94,
+        "5": 0.98
+      },
+      "mrr": 0.8833333333333334,
+      "precision_at_k": {
+        "1": 0.82,
+        "3": 0.4,
+        "5": 0.304
+      },
+      "recall_at_k": {
+        "1": 0.82,
+        "3": 0.94,
+        "5": 0.98
+      },
+      "ndcg_at_k": {
+        "1": 0.82,
+        "3": 0.8904743802857166,
+        "5": 0.9077014426086524
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.6739999999999995,
+        "avg_correctness": 4.48,
+        "avg_completeness": 4.86,
+        "avg_relevance": 4.68
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_engcomp\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.74,
+        "3": 0.88,
+        "5": 0.92
+      },
+      "mrr": 0.8113333333333332,
+      "precision_at_k": {
+        "1": 0.74,
+        "3": 0.5866666666666667,
+        "5": 0.42800000000000005
+      },
+      "recall_at_k": {
+        "1": 0.74,
+        "3": 0.88,
+        "5": 0.92
+      },
+      "ndcg_at_k": {
+        "1": 0.74,
+        "3": 0.8230929753571458,
+        "5": 0.8385670876465273
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.684,
+        "avg_correctness": 4.62,
+        "avg_completeness": 4.72,
+        "avg_relevance": 4.7
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_lce\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.8,
+        "3": 0.98,
+        "5": 1.0
+      },
+      "mrr": 0.895,
+      "precision_at_k": {
+        "1": 0.8,
+        "3": 0.44,
+        "5": 0.316
+      },
+      "recall_at_k": {
+        "1": 0.8,
+        "3": 0.98,
+        "5": 1.0
+      },
+      "ndcg_at_k": {
+        "1": 0.8,
+        "3": 0.9135673556428624,
+        "5": 0.9221808868043303
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.842,
+        "avg_correctness": 4.78,
+        "avg_completeness": 4.78,
+        "avg_relevance": 4.96
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_lce\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.84,
+        "3": 0.92,
+        "5": 0.96
+      },
+      "mrr": 0.89,
+      "precision_at_k": {
+        "1": 0.84,
+        "3": 0.6,
+        "5": 0.47200000000000003
+      },
+      "recall_at_k": {
+        "1": 0.84,
+        "3": 0.92,
+        "5": 0.96
+      },
+      "ndcg_at_k": {
+        "1": 0.84,
+        "3": 0.8904743802857166,
+        "5": 0.9077014426086524
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.686,
+        "avg_correctness": 4.6,
+        "avg_completeness": 4.64,
+        "avg_relevance": 4.8
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_lmat\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.7,
+        "3": 0.92,
+        "5": 0.96
+      },
+      "mrr": 0.799,
+      "precision_at_k": {
+        "1": 0.7,
+        "3": 0.4733333333333334,
+        "5": 0.308
+      },
+      "recall_at_k": {
+        "1": 0.7,
+        "3": 0.92,
+        "5": 0.96
+      },
+      "ndcg_at_k": {
+        "1": 0.7,
+        "3": 0.8230929753571458,
+        "5": 0.8394435626633044
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.394,
+        "avg_correctness": 4.24,
+        "avg_completeness": 4.28,
+        "avg_relevance": 4.66
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\ppp_lmat\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.82,
+        "3": 1.0,
+        "5": 1.0
+      },
+      "mrr": 0.9033333333333334,
+      "precision_at_k": {
+        "1": 0.82,
+        "3": 0.6733333333333333,
+        "5": 0.5320000000000001
+      },
+      "recall_at_k": {
+        "1": 0.82,
+        "3": 1.0,
+        "5": 1.0
+      },
+      "ndcg_at_k": {
+        "1": 0.82,
+        "3": 0.9283301655000041,
+        "5": 0.9283301655000041
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.816,
+        "avg_correctness": 4.72,
+        "avg_completeness": 4.82,
+        "avg_relevance": 4.9
+      }
+    }
+  ]
+}

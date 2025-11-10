@@ -1,0 +1,93 @@
+{
+  "project_path": "projects/batch_proj/all_courses",
+  "evaluation_summary": {
+    "total_subfolders": 2,
+    "total_questions": 100,
+    "retrieval_metrics": {
+      "hit_at_1": 0.6,
+      "hit_at_3": 0.81,
+      "hit_at_5": 0.86,
+      "mrr": 0.7048333333333333,
+      "precision_at_1": 0.6,
+      "precision_at_3": 0.3466666666666666,
+      "precision_at_5": 0.256,
+      "recall_at_1": 0.6,
+      "recall_at_3": 0.81,
+      "recall_at_5": 0.86,
+      "ndcg_at_1": 0.6,
+      "ndcg_at_3": 0.7233301655000041,
+      "ndcg_at_5": 0.7439875183868966
+    },
+    "generation_metrics": {
+      "avg_llm_score": 4.127,
+      "avg_correctness": 3.96,
+      "avg_completeness": 4.01,
+      "avg_relevance": 4.41,
+      "total_evaluated": 100
+    }
+  },
+  "subfolder_results": [
+    {
+      "project_path": "projects/batch_proj\\all_courses\\individual",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.72,
+        "3": 0.9,
+        "5": 0.94
+      },
+      "mrr": 0.8056666666666666,
+      "precision_at_k": {
+        "1": 0.72,
+        "3": 0.33333333333333326,
+        "5": 0.24
+      },
+      "recall_at_k": {
+        "1": 0.72,
+        "3": 0.9,
+        "5": 0.94
+      },
+      "ndcg_at_k": {
+        "1": 0.72,
+        "3": 0.8230929753571458,
+        "5": 0.8394435626633044
+      },
+      "generation_metrics": {
+        "avg_llm_score": 3.9840000000000004,
+        "avg_correctness": 3.72,
+        "avg_completeness": 3.8,
+        "avg_relevance": 4.44
+      }
+    },
+    {
+      "project_path": "projects/batch_proj\\all_courses\\unificado",
+      "total_questions": 50,
+      "hit_at_k": {
+        "1": 0.48,
+        "3": 0.72,
+        "5": 0.78
+      },
+      "mrr": 0.604,
+      "precision_at_k": {
+        "1": 0.48,
+        "3": 0.36,
+        "5": 0.272
+      },
+      "recall_at_k": {
+        "1": 0.48,
+        "3": 0.72,
+        "5": 0.78
+      },
+      "ndcg_at_k": {
+        "1": 0.48,
+        "3": 0.6235673556428624,
+        "5": 0.648531474110489
+      },
+      "generation_metrics": {
+        "avg_llm_score": 4.27,
+        "avg_correctness": 4.2,
+        "avg_completeness": 4.22,
+        "avg_relevance": 4.38
+      }
+    }
+  ]
+}

@@ -54,8 +54,14 @@ def run_index(config, project_dir, data_source=None, persona_type=None, mode="in
         raise FileNotFoundError(f"Data file not found: {csv_file}")
     
     df = pd.read_csv(csv_file)
-    texts = df["text"].tolist()
-    print(f"📝 Loaded {len(texts)} text chunks")
+    # Create list of dictionaries with text and chunk_id
+    text_chunks = []
+    for _, row in df.iterrows():
+        text_chunks.append({
+            'text': row['text'],
+            'chunk_id': row['chunk_id']
+        })
+    print(f"📝 Loaded {len(text_chunks)} text chunks with chunk IDs")
     
     # Create course-specific directory first
     course_dir = os.path.join(project_dir, course_dir_name)
@@ -71,7 +77,7 @@ def run_index(config, project_dir, data_source=None, persona_type=None, mode="in
             persona_type = "aluno"  # Default persona
         
         print(f"👤 Generating FAQs for persona: {persona_type}")
-        generate_faqs(config, output_dir, texts, course_name=course_name, persona_type=persona_type)
+        generate_faqs(config, output_dir, text_chunks, course_name=course_name, persona_type=persona_type)
         embed_faqs(config, output_dir)
         
     elif mode == "unificado":
@@ -85,7 +91,7 @@ def run_index(config, project_dir, data_source=None, persona_type=None, mode="in
         
         for persona in available_personas:
             print(f"  🔄 Processing persona: {persona}")
-            generate_faqs(config, output_dir, texts, course_name=course_name, 
+            generate_faqs(config, output_dir, text_chunks, course_name=course_name, 
                          persona_type=persona, multi_persona=True)
         
         # Merge all persona files
@@ -154,13 +160,96 @@ def run_batch_indexing(config, project_base_dir, data_sources=None, mode="indivi
     if data_sources is None:
         data_sources = [source["name"] for source in available_sources]
     
+    # Process individual courses first
     for source_name in data_sources:
         print(f"\n🚀 Processing data source: {source_name}")
-        project_dir = os.path.join(project_base_dir, source_name)
-        os.makedirs(project_dir, exist_ok=True)
+        # Don't create course directory here - run_index will handle it
+        project_dir = project_base_dir
         
         try:
             run_index(config, project_dir, data_source=source_name, mode=mode)
             print(f"✅ Completed: {source_name}")
         except Exception as e:
             print(f"❌ Failed: {source_name} - {str(e)}")
+    
+    # Create aggregated all_courses dataset
+    print(f"\n🔄 Creating aggregated dataset: all_courses")
+    create_aggregated_dataset(config, project_base_dir, data_sources, mode)
+
+def create_aggregated_dataset(config, project_base_dir, data_sources, mode):
+    """
+    Create an aggregated dataset from all individual datasets (e.g course datasets like ppp_bcc).
+    
+    Args:
+        config: Configuration dictionary
+        project_base_dir: Base directory for projects
+        data_sources: List of data source names
+        mode: "individual" or "unificado"
+    """
+    import pandas as pd
+    
+    # Create all_courses directory structure
+    all_courses_dir = os.path.join(project_base_dir, "all_courses")
+    output_dir = os.path.join(all_courses_dir, mode)
+    os.makedirs(output_dir, exist_ok=True)
+    
+    print(f"📁 Created directory: {output_dir}")
+    
+    # Collect all FAQ files from individual courses
+    all_faqs = []
+    course_stats = {}
+    
+    for source_name in data_sources:
+        course_dir = os.path.join(project_base_dir, source_name, mode)
+        faq_file = os.path.join(course_dir, "faq.csv")
+        
+        if os.path.exists(faq_file):
+            try:
+                df = pd.read_csv(faq_file)
+                # Add course information if not present
+                if 'course' not in df.columns:
+                    df['course'] = source_name
+                all_faqs.append(df)
+                course_stats[source_name] = len(df)
+                print(f"  ✅ Loaded {len(df)} FAQs from {source_name}")
+            except Exception as e:
+                print(f"  ⚠️  Error loading {source_name}: {str(e)}")
+        else:
+            print(f"  ⚠️  FAQ file not found: {faq_file}")
+    
+    if all_faqs:
+        # Combine all DataFrames
+        aggregated_df = pd.concat(all_faqs, ignore_index=True)
+        
+        # Save aggregated file
+        aggregated_path = os.path.join(output_dir, "faq.csv")
+        aggregated_df.to_csv(aggregated_path, index=False, encoding="utf-8")
+        
+        print(f"\n📊 Aggregation Summary:")
+        print(f"📈 Total FAQs: {len(aggregated_df)}")
+        
+        # Show breakdown by course
+        if 'course' in aggregated_df.columns:
+            course_counts = aggregated_df['course'].value_counts()
+            print(f"🎓 FAQs by course:")
+            for course, count in course_counts.items():
+                print(f"   - {course}: {count}")
+        
+        # Show breakdown by persona (if available)
+        if 'persona' in aggregated_df.columns:
+            persona_counts = aggregated_df['persona'].value_counts()
+            print(f"👥 FAQs by persona:")
+            for persona, count in persona_counts.items():
+                print(f"   - {persona}: {count}")
+        
+        print(f"\n✅ Aggregated CSV saved to: {aggregated_path}")
+        
+        # Generate embeddings for the aggregated dataset
+        print(f"\n🔢 Generating embeddings for aggregated dataset...")
+        try:
+            embed_faqs(config, output_dir)
+            print(f"✅ Embeddings generated successfully!")
+        except Exception as e:
+            print(f"❌ Error generating embeddings: {str(e)}")
+    else:
+        print("❌ No FAQ files found to aggregate!")

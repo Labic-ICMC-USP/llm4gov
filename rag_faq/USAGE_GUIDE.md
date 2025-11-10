@@ -1,26 +1,26 @@
-# 📚 Guia de Uso do Sistema RAG FAQ
+# Guia de Uso do Sistema RAG FAQ
 
 ## Visão Geral
 
 O sistema RAG FAQ oferece três modos principais de operação:
 
-### 🔍 **Modo Index** - Geração de FAQs e Embeddings
+### **Modo Index** - Geração de FAQs e Embeddings
 - **Persona única** (modo individual) ou **Multi-persona** (modo unificado)
 - **Múltiplas fontes de dados** (todos os cursos configurados no config.yaml)
 - **Processamento em lote** para todas as fontes de dados
 - **Parâmetros CLI flexíveis** para configuração fácil
 
-### 💬 **Modo Query** - Consulta via CLI
+### **Modo Query** - Consulta via CLI
 - Interface de linha de comando
 - Busca semântica nas FAQs geradas
 - Respostas contextuais baseadas nos embeddings
 
-### 🌐 **Modo Server** - Servidor Web Flask
+### **Modo Server** - Servidor Web Flask
 - Interface web para consultas
 - API REST para integração
 - Interface HTML amigável
 
-## 🎯 Exemplos de Uso - Modo Index
+## Exemplos de Uso - Modo Index
 
 ### 1. Curso Único, Persona Única (Modo Individual)
 ```bash
@@ -52,7 +52,7 @@ python -m rag_faq.main --mode index --project batch_proj --batch --index-mode un
 python -m rag_faq.main --mode index --project test_proj --data-source "data/custom_data.csv" --persona aluno
 ```
 
-### 📁 Estrutura de Saída - Modo Index
+### Estrutura de Saída - Modo Index
 
 #### Saída do Modo Individual
 ```
@@ -92,7 +92,7 @@ projects/
     └── ... (todos os outros cursos)
 ```
 
-## 🎯 Exemplos de Uso - Modo Query
+## Exemplos de Uso - Modo Query
 
 ### Consulta Básica
 ```bash
@@ -103,7 +103,7 @@ python -m rag_faq.main --mode query --project test_proj/ppp_bcc/individual
 python -m rag_faq.main --mode query --project test_proj/ppp_bcc/unificado
 ```
 
-## 🎯 Exemplo de Uso - Modo Server
+## Exemplo de Uso - Modo Server
 
 ```bash
 # Para usar FAQs de persona única (modo individual)
@@ -127,7 +127,7 @@ python -m rag_faq.server --project test_proj/ppp_bcc/unificado --port 8000
 #             └── embeddings.npy
 ```
 
-## 💬 Interface de Consulta (Modo Query)
+## Interface de Consulta (Modo Query)
 
 ### Como Funciona
 1. **Inicialização**: O sistema carrega os embeddings e FAQs do projeto especificado
@@ -136,7 +136,7 @@ python -m rag_faq.server --project test_proj/ppp_bcc/unificado --port 8000
 4. **Geração de Resposta**: Um LLM gera uma resposta contextual baseada nas FAQs encontradas
 5. **Exibição**: Mostra a resposta e as fontes utilizadas
 
-## 🌐 Interface do Servidor Web (Modo Server)
+## Interface do Servidor Web (Modo Server)
 
 ### Como Funciona
 1. **Inicialização**: O servidor Flask carrega os embeddings e FAQs do projeto especificado
@@ -145,7 +145,7 @@ python -m rag_faq.server --project test_proj/ppp_bcc/unificado --port 8000
 4. **Processamento**: Mesmo sistema de busca semântica do modo query
 5. **Resposta Visual**: Exibe resposta e contexto de forma organizada
 
-## ⚙️ Opções de Configuração
+## Opções de Configuração
 
 ### Fontes de Dados Disponíveis (no config.yaml)
 - `ppp_bcc` - Bacharelado em Ciência da Computação
@@ -166,7 +166,7 @@ python -m rag_faq.server --project test_proj/ppp_bcc/unificado --port 8000
 
 > **⚠️ Aviso**: Para adicionar novas personas, será necessário criar o arquivo de prompt correspondente na pasta `/prompts` com o nome `persona_[nome_da_persona].txt`. O sistema automaticamente carregará o prompt baseado no nome da persona especificada.
 
-## 🔧 Uso Avançado
+## Uso Avançado
 
 ### Configuração Personalizada
 Você pode modificar o `config.yaml` para:
@@ -177,7 +177,7 @@ Você pode modificar o `config.yaml` para:
 - Ajustar número de FAQs recuperadas (`top_k` para retrieval)
 - Configurar número de perguntas por texto (`questions_per_text`)
 
-## 🚀 Comandos de Início Rápido (Curso BCC com persona única e multi-persona)
+## Comandos de Início Rápido (Curso BCC com persona única e multi-persona)
 
 ### Modo Index
 ```bash
@@ -206,7 +206,7 @@ python -m rag_faq.server --project test_proj/ppp_bcc/individual --port 8080
 python -m rag_faq.server --project test_proj/ppp_bcc/unificado --port 8080
 ```
 
-## 📋 Resumo dos Parâmetros
+## Resumo dos Parâmetros
 
 ### Parâmetros Gerais
 - `--mode`: `index` (geração) ou `query` (consulta)

@@ -5,10 +5,13 @@ from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 from rag_faq.utils import load_prompt_template, format_prompt, parse_faq_response
 
-def generate_faqs(config, project_dir, texts, course_name=None, persona_type=None, multi_persona=False):
+def generate_faqs(config, project_dir, text_chunks, course_name=None, persona_type="aluno", multi_persona=False):
     """
-    Generate FAQs (question-answer pairs) from a list of texts using an LLM.
+    Generate FAQs (question-answer pairs) from a list of texts with chunk information using an LLM.
     The output is saved as a CSV file in the specified project directory.
+    
+    Args:
+        text_chunks: List of dictionaries with 'text' and 'chunk_id' keys
     """
 
     # Load LLM configuration
@@ -30,8 +33,11 @@ def generate_faqs(config, project_dir, texts, course_name=None, persona_type=Non
 
     all_rows = []
 
-    for text in tqdm(texts, desc="Generating FAQs"):
+    for text_chunk in tqdm(text_chunks, desc="Generating FAQs"):
         try:
+            text = text_chunk['text']
+            chunk_id = text_chunk['chunk_id']
+            
             prompts = format_prompt(persona, rules, text, k)
 
             # Invoke the LLM
@@ -43,14 +49,15 @@ def generate_faqs(config, project_dir, texts, course_name=None, persona_type=Non
             # Parse and extract Q&A pairs
             faqs = parse_faq_response(response.content, k)
 
-            # Store each Q&A pair with its original text
+            # Store each Q&A pair with its original text and chunk_id
             for faq in faqs:
                 all_rows.append({
                     "source_text": text,
+                    "chunk_id": chunk_id,
                     "question": faq["question"],
                     "answer": faq["answer"],
                     "course": course_name or "unknown",
-                    "persona": persona_type or "unknown"
+                    "persona": persona_type
                 })
 
         except Exception as e:

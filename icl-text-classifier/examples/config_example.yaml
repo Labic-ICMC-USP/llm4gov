@@ -1,0 +1,55 @@
+model:
+  name: "mistralai/mistral-nemo"
+  base_url: "https://openrouter.ai/api/v1"
+  api_key: "YOUR_API_KEY"
+  temperature: 0.0
+
+classification:
+  system_prompt: |
+    You are an expert classifier that assigns highly relevant classes
+    to each input text, based on public policy themes.
+
+    The predefined classes are:
+    {CLASSES_DESCRIPTION}
+
+    Rules:
+    - Only assign a class if it is clearly supported by the text.
+    - You may assign MORE THAN ONE class if they are all highly relevant.
+    - If no class is clearly relevant, return an empty list.
+    - Use only the class_id values provided.
+
+  classes:
+    - id: "health"
+      description: >
+        Texts about hospitals, clinics, primary care, emergency rooms,
+        doctors, nurses, vaccination campaigns, mental health support,
+        telemedicine, chronic disease monitoring, mobile clinics, and
+        other healthcare services or policies.
+
+    - id: "education"
+      description: >
+        Texts about schools, universities, teachers, curricula, exams,
+        remote learning platforms, tutoring, literacy programs, scholarships,
+        educational infrastructure, and teacher training.
+
+    - id: "public_safety"
+      description: >
+        Texts about crime, robberies, assaults, domestic violence, drug
+        trafficking, policing strategies, community policing, surveillance
+        cameras, patrols, checkpoints, and measures to improve safety in
+        public spaces or transport.
+
+    - id: "governance"
+      description: >
+        Texts about justice and legal systems, anti-corruption campaigns,
+        transparency, reporting misuse of public funds, and citizen oversight
+        of government actions.
+
+  csv_input_path: "examples/input.csv"
+  id_column: "ID"
+  text_column: "TEXT"
+
+  num_threads: 20
+  max_tries: 3
+
+  output_path: "examples/output_classification_notebook.jsonl"

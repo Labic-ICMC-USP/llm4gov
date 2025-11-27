@@ -3,11 +3,11 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "icl-text-classifier"
+name = "icl_text_classifier"
 version = "0.1.0"
 description = "In-context learning text classifier using LLMs with YAML config and CSV input."
 authors = [
-  { name = "Your Name", email = "you@example.com" }
+  { name = "Ricardo Marcacini", email = "ricardo.marcacini@usp.br" }
 ]
 readme = "README.md"
 requires-python = ">=3.10"
@@ -21,8 +21,15 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://example.com/icl-text-classifier"
-Source = "https://example.com/icl-text-classifier"
+Homepage = "https://github.com/Labic-ICMC-USP/llm4gov/tree/main/icl-text-classifier"
+Source   = "https://github.com/Labic-ICMC-USP/llm4gov/tree/main/icl-text-classifier"
 
 [project.scripts]
 icl-classify = "icl_classifier.cli:main"
+
+# IMPORTANTE PRO LAYOUT COM SRC/
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

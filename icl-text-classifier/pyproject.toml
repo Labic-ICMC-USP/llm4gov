@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "icl-text-classifier"
+version = "0.1.0"
+description = "In-context learning text classifier using LLMs with YAML config and CSV input."
+authors = [
+  { name = "Your Name", email = "you@example.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "langchain-openai>=0.1.0",
+  "pydantic>=2.0.0",
+  "PyYAML>=6.0",
+  "tqdm>=4.0",
+  "pandas"
+]
+
+[project.urls]
+Homepage = "https://example.com/icl-text-classifier"
+Source = "https://example.com/icl-text-classifier"
+
+[project.scripts]
+icl-classify = "icl_classifier.cli:main"
